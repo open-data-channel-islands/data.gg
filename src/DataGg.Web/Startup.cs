@@ -43,6 +43,13 @@ namespace DataGg.Web
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
             });
             /**/
+
+
+            //TODO: Revist. Not working for some reason?? maybe .net 5 issue?
+            services.AddWebOptimizer(pipeline =>
+           {
+               pipeline.AddCssBundle("/css/bundle.css", new string[] { "wwwroot/css/*.css" }).UseContentRoot();
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +73,11 @@ namespace DataGg.Web
             }
 
             app.UseHttpsRedirection();
+
+            /* MUST GO ABOVE UseStaticFiles */
+            app.UseWebOptimizer();
+            /**/
+
             app.UseStaticFiles();
 
             app.UseRouting();

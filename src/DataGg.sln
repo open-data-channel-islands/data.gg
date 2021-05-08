@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGg.Web", "DataGg.Web\DataGg.Web.csproj", "{84DB2AFE-2867-4DC5-892D-FC4F9467168B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGg.Core", "DataGg.Core\DataGg.Core.csproj", "{3A14F3C5-7DBA-4BD2-96F9-F2173182D223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGg.Core", "DataGg.Core\DataGg.Core.csproj", "{3A14F3C5-7DBA-4BD2-96F9-F2173182D223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGg.Database", "DataGg.Database\DataGg.Database.csproj", "{42E2738A-26C0-4CB7-BCC1-5A996AA27A29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGg.Database", "DataGg.Database\DataGg.Database.csproj", "{42E2738A-26C0-4CB7-BCC1-5A996AA27A29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
