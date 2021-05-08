@@ -1,0 +1,35 @@
+﻿@model Models.BreadcrumPageModel
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb" id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            @for (int i = 0; i < Model.Breadcrums.Count; i++)
+            {
+                var bc = Model.Breadcrums[i];
+
+                @if (i == Model.Breadcrums.Count - 1)
+                {
+                    <li class="breadcrumb-item active">@bc.Name</li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item"><a href="@bc.Url">@bc.Name</a></li>
+                }
+            }
+        </ol>
+    </div>
+</nav>
+
+<div class="container">
+
+
+    <div class="page-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+
+    @RenderBody()
+</div>

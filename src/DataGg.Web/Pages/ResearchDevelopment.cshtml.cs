@@ -11,15 +11,15 @@ namespace DataGg.Web.Pages
 {
 
     //[AllowAnonymous]
-    public class PrivacyModel : BreadcrumPageModel
+    public class ResearchDevelopmentModel : BreadcrumPageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public ResearchDevelopmentModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;
 
-            Breadcrums.Add(new Breadcrum("Privacy", string.Empty));
+            Breadcrums.Add(new Breadcrum("R&D", string.Empty));
         }
 
         public void OnGet()

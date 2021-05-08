@@ -11,11 +11,15 @@ table.vertical-align-middle tbody tr td {
     vertical-align: middle;
 }
 
-.jumbotron {
+.jumbotron { 
   padding-bottom:0;
   margin-bottom:0;
   background-color:#3299BB;
-  border-bottom:1px solid #2A7F9C;
+}
+
+.jumbotron.orange {
+    padding-top: 12px;
+    background-color: #FF9900;
 }
 
 .jumbotron h2 {
@@ -77,10 +81,6 @@ body {
   padding-top:50px;
 }
 
-.carousel-indicators li {
-  border:1px solid #444;
-}
-
 
 h2.faint-heading {
   text-align:center;
@@ -92,16 +92,16 @@ h2.faint-heading {
   padding:0 12px;
 }
 
-ol.breadcrumb {
-  margin:0;
-  padding:8px 0;
-  background:transparent;
-}
-
 #breadcrumb {
   background-color:#E9E9E9;
-  padding:0px;
 }
+
+.breadcrumb {
+    padding-bottom: 0.3rem;
+    padding-top: 0.6rem;
+}
+
+
 
 .label-format {
   margin: 5px;
@@ -115,4 +115,9 @@ ol.breadcrumb {
 
 .data-gg-tab-padding {
   margin-bottom: 12px;
+}
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eeeeee;
 }
