@@ -1,4 +1,6 @@
+using DataGg.Database;
 using DataGg.Web.Data;
+using DataGg.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -50,6 +52,16 @@ namespace DataGg.Web
            {
                pipeline.AddCssBundle("/css/bundle.css", new string[] { "wwwroot/css/*.css" }).UseContentRoot();
            });
+
+
+            // data layer
+            services.AddSingleton<RootDb>();
+
+            // normal services
+            services.AddSingleton<CacheManager>();
+
+            // hosted services
+            services.AddHostedService<CacheBackgroundService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

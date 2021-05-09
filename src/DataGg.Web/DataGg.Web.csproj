@@ -20,4 +20,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataGg.Core\DataGg.Core.csproj" />
+    <ProjectReference Include="..\DataGg.Database\DataGg.Database.csproj" />
+  </ItemGroup>
+
 </Project>

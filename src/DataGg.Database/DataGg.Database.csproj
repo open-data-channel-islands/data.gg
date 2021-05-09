@@ -14,4 +14,8 @@
     <Folder Include="Guernsey\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DataGg.Core\DataGg.Core.csproj" />
+  </ItemGroup>
+
 </Project>
