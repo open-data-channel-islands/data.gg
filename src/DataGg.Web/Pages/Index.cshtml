@@ -21,21 +21,11 @@
 
 <div class="front-page-feature-triangles">
     <div class="container">
-        @*        <% if @active_alerts.count > 0 %>
-            <div class="front-page-alert">
-                <% @active_alerts.each do |alert| %>
-                <div class="alert alert-<%= type_to_bootstrap_alert_str(alert.level) %>" role="alert"><%= alert.created_at.strftime('%a %b %Y') %>: <%= alert.message %></div>
-                <% end %>
-            </div>
-            <% end %>*@
-
         <h2 class="faint-heading">Guernsey Data, Visualised</h2>
         @*<%= render partial: "charts/front_page" %>*@
         <h2 class="faint-heading">CHARTS</h2>
 
-        @*<%= render partial: "charts_list" %>*@
-        <h2 class="faint-heading">MAPS</h2>
-        @*<%= render partial: "maps_list" %>*@
+        <partial name="Shared/_ChartList.cshtml" />
     </div>
 </div>
 
@@ -106,6 +96,5 @@
         </div>
     </div>
 
-
-    @*<%= render partial: "developers_list" %>*@
+    <partial name="Shared/_ApiList.cshtml" />
 </div>

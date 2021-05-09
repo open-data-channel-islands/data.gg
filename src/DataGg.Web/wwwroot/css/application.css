@@ -84,12 +84,11 @@ body {
 
 h2.faint-heading {
   text-align:center;
-  margin:30px 0;
   text-transform:uppercase;
   color:#AAA;
   font-weight:100;
   font-size:1.4em;
-  padding:0 12px;
+  padding:30px 12px;
 }
 
 #breadcrumb {

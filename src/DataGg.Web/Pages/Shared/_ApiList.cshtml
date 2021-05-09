@@ -1,0 +1,43 @@
+﻿@using DataGg.Web.Services
+@inject CacheManager CacheManager
+@{
+    var dataCategories = CacheManager.DataCategories.IsCached ? 
+        (await CacheManager.DataCategories.Get()) : 
+        null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @if (dataCategories != null)
+        {
+            <div class="table-responsive">
+                <table class="table table-striped table-hover vertical-align-middle" width="100%">
+                    <thead>
+                        <tr>
+                            <th>API</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var dc in dataCategories)
+                        {
+                            <tr>
+                                <td>
+                                    <a class="category-inline-link" href="/Developers/@dc.Stub">
+                                        <span class="category-small category-image @dc.Image"></span>
+                                        @dc.Name
+                                    </a>
+                                </td>
+                                <td>@dc.Desc</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p>Website still building. Stand by.</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@using DataGg.Web.Services
+@using MoreLinq
+@inject CacheManager CacheManager
+@{
+    var dataCategories = CacheManager.DataCategories.IsCached ?
+        (await CacheManager.DataCategories.Get()) :
+        null;
+}
+
+
+@if (dataCategories != null)
+{
+    @foreach (var group in dataCategories.Batch(3))
+    {
+        <div class="row">
+            @foreach (var dc in group)
+            {
+                <div class="col-sm-4 col-md-4">
+                    <a href="/Charts/@dc.Stub" class="category">
+                        <div class="category-image @dc.Image"></div>
+                        <div class="category-detail">
+                            <h3><strong>@dc.Name</strong></h3>
+                            <p>@dc.Desc</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+}
+else
+{
+    <p>Website still building. Stand by.</p>
+}
