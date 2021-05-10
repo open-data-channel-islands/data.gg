@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Tourism
 {
-    class AirByMonth
+    public class AirByMonth
     {
         [JsonPropertyName("Year")]
         public long Year { get; set; }

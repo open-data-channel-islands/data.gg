@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Water
 {
-    class WaterQualityCompliance
+    public class WaterQualityCompliance
     {
         [JsonPropertyName("Year")]
         public long Year { get; set; }

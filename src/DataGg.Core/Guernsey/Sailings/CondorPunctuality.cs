@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Sailings
 {
-    class CondorPunctuality
+    public class CondorPunctuality
     {
         [JsonPropertyName("route")]
         public string Route { get; set; }

@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace DataGg.Core.Guernsey.Earnings
 {
-    class EarningsAgeGroup
+    public class EarningsAgeGroup
     {
         [JsonPropertyName("Age Group")]
         public string AgeGroup { get; set; }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey
+namespace DataGg.Core.Guernsey.Herm
 {
-    class HermTrident
+    public class HermTrident
     {
         [JsonPropertyName("Date")]
         public string Date { get; set; }

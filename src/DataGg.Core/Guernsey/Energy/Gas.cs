@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.energy
+namespace DataGg.Core.Guernsey.Energy
 {
     public class Gas
     {

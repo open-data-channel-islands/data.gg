@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Population
 {
-    class Age
+    public class Age
     {
         [JsonPropertyName("1")]
         public long The1 { get; set; }

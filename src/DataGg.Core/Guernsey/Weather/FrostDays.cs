@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Weather
 {
-    class FrostDays
+    public class FrostDays
     {
         [JsonPropertyName("Period")]
         public string Period { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Health
 {
-    class ChestAndHeartConcerns
+    public class ChestAndHeartConcerns
     {
         [JsonPropertyName("Year")]
         public long Year { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.GovernmentSpending
 {
-    class BreakdownContainer
+    public class BreakdownContainer
     {
         [JsonPropertyName("Expenditure")]
         public string Expenditure { get; set; }
@@ -28,7 +28,7 @@ namespace DataGg.Core.Guernsey.GovernmentSpending
         public Breakdown[] Breakdown { get; set; }
     }
 
-    public partial class Breakdown
+    public class Breakdown
     {
         [JsonPropertyName("Expenditure")]
         public string Expenditure { get; set; }

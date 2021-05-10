@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Education
 {
-    class GcseOverall
+    public class GcseOverall
     {
         [JsonPropertyName("Year")]
         public long Year { get; set; }

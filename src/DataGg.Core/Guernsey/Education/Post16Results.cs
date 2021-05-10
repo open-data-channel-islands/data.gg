@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace DataGg.Core.Guernsey.Education
 {
-    class Post16Results
+    public class Post16Results
     {
         [JsonPropertyName("Year")]
         public string Year { get; set; }

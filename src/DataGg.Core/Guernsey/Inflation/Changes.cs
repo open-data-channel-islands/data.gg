@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Inflation
 {
-    class Changes
+    public class Changes
     {
         [JsonPropertyName("Quarter")]
         public string Quarter { get; set; }

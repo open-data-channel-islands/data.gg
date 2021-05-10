@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Weather
 {
-    class MetOfficeMonthly
+    public class MetOfficeMonthly
     {
         [JsonPropertyName("year")]
         public long Year { get; set; }

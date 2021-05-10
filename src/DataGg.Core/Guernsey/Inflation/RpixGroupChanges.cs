@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGg.Core.Guernsey.Inflation
 {
-    class RpixGroupChanges
+    public class RpixGroupChanges
     {
         [JsonPropertyName("Type")]
         public string Type { get; set; }

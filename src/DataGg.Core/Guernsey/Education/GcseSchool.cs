@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace DataGg.Core.Guernsey.Education
 {
-    class GcseSchool
+    public class GcseSchool
     {
         [JsonPropertyName("Year")]
         public string Year { get; set; }
