@@ -42,7 +42,7 @@ namespace DataGg.Web
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "data.gg", Version = "v1" });
             });
             /**/
 
@@ -74,7 +74,7 @@ namespace DataGg.Web
 
                 /* ADDED FROM API EXAMPLE SLN */
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication1 v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "data.gg v1"));
                 /**/
             }
             else
