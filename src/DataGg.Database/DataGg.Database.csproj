@@ -63,7 +63,6 @@
     <None Remove="Guernsey\population\population.json" />
     <None Remove="Guernsey\sailings\condor_punctuality.json" />
     <None Remove="Guernsey\sailings\cruises.json" />
-    <None Remove="Guernsey\tides\tides.json" />
     <None Remove="Guernsey\tourism\air_by_month.json" />
     <None Remove="Guernsey\tourism\cruises.json" />
     <None Remove="Guernsey\tourism\sea_by_month.json" />
@@ -134,7 +133,6 @@
     <EmbeddedResource Include="Guernsey\population\population.json" />
     <EmbeddedResource Include="Guernsey\sailings\condor_punctuality.json" />
     <EmbeddedResource Include="Guernsey\sailings\cruises.json" />
-    <EmbeddedResource Include="Guernsey\tides\tides.json" />
     <EmbeddedResource Include="Guernsey\tourism\air_by_month.json" />
     <EmbeddedResource Include="Guernsey\tourism\cruises.json" />
     <EmbeddedResource Include="Guernsey\tourism\sea_by_month.json" />

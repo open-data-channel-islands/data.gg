@@ -19,7 +19,7 @@ namespace DataGg.Core.Guernsey.Sailings
         public string PortOfRegistry { get; set; }
 
         [JsonPropertyName("Pax")]
-        public string Pax { get; set; }
+        public double? Pax { get; set; }
 
         [JsonPropertyName("Arrival From")]
         public string ArrivalFrom { get; set; }
