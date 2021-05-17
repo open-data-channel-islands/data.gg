@@ -93,7 +93,7 @@ namespace DataGg.Database
                 TrafficCollisions = await GetTrafficCollisions(),
                 TrafficInjuries = await GetTrafficInjuries(),
                 TransportRegisteredVehicles = await GetTransportRegisteredVehicles(),
-                WasteCommercialAndIndustrialWaste = await GetWasteCommercialAndIndustrialWaste(),
+                WasteCommercialAndIndustrial = await GetWasteCommercialAndIndustrialWaste(),
                 WasteConstructionAndDemolition = await GetWasteConstructionAndDemolition(),
                 WasteHousehold = await GetWasteHousehold(),
                 WaterDomesticConsumption = await GetWaterDomesticConsumption(),

@@ -84,7 +84,7 @@ namespace DataGg.Core.Types
         public IEnumerable<TrafficCollisions> TrafficCollisions { get; set; }
         public IEnumerable<TrafficInjuries> TrafficInjuries { get; set; }
         public IEnumerable<RegisteredVehicles> TransportRegisteredVehicles { get; set; }
-        public IEnumerable<CommericalAndIndustrial> WasteCommercialAndIndustrialWaste { get; set; }
+        public IEnumerable<CommericalAndIndustrial> WasteCommercialAndIndustrial { get; set; }
         public IEnumerable<ConstructionAndDemolition> WasteConstructionAndDemolition { get; set; }
         public IEnumerable<Household> WasteHousehold { get; set; }
         public IEnumerable<DomesticConsumption> WaterDomesticConsumption { get; set; }
