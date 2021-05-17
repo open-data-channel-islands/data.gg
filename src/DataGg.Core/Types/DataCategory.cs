@@ -15,8 +15,6 @@ namespace DataGg.Core.Types
         public string Stub { get; set; }
         public bool ComingSoon { get; set; }
         public bool ShowOnSite { get; set; }
-
-        //etc
     }
 
     public class DataCategoryDto : DataCategory {

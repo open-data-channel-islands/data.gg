@@ -56,6 +56,7 @@ namespace DataGg.Web
 
             // data layer
             services.AddSingleton<RootDb>();
+            services.AddSingleton<GuernseyDb>();
 
             // normal services
             services.AddSingleton<CacheManager>();

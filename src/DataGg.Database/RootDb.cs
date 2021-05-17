@@ -16,7 +16,7 @@ namespace DataGg.Database
         {
         }
 
-        public async Task<DataCategory[]> GetData()
+        public async Task<DataCategoryDto[]> GetData()
         {
             await using var conn = await OpenConnectionAsync();
 

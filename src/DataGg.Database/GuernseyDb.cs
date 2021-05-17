@@ -24,6 +24,7 @@ using DataGg.Core.Guernsey.Transport;
 using DataGg.Core.Guernsey.Waste;
 using DataGg.Core.Guernsey.Water;
 using DataGg.Core.Guernsey.Weather;
+using DataGg.Core.Types;
 using Microsoft.Extensions.Configuration;
 
 namespace DataGg.Database
@@ -31,6 +32,82 @@ namespace DataGg.Database
     public class GuernseyDb : DatabaseBase
     {
         public GuernseyDb(IConfiguration configuration) : base(configuration) { }
+
+        public async Task<DataCache> GetDataCache()
+        {
+            return new DataCache()
+            {
+                BusUsage = await GetBusUsage(),
+                HermTrident = await GetHermTrident(),
+                Crime = await GetCrime(),
+                CrimePrisonPopulation = await GetCrimePrisonPopulation(),
+                CrimeWorried = await GetCrimeWorried(),
+                EarningsAgeGroup = await GetEarningsAgeGroup(),
+                EducationEarningsSector = await GetEducationEarningsSector(),
+                EducationEarningsSex = await GetEducationEarningsSex(),
+                EducationGcseOverall = await GetEducationGcseOverall(),
+                EducationGcseSchool = await GetEducationGcseSchool(),
+                EducationPost16Results = await GetEducationPost16Results(),
+                EducationStudentsInUk = await GetEducationStudentsInUk(),
+                EmissionSource = await GetEmissionSource(),
+                EmissionType = await GetEmissionType(),
+                EmploymentSector = await GetEmploymentSector(),
+                EmploymentTotals = await GetEmploymentTotals(),
+                EnergyElectricityConsumption = await GetEnergyElectricityConsumption(),
+                EnergyElectricityImportVsGenerated = await GetEnergyElectricityImportVsGenerated(),
+                EnergyGas = await GetEnergyGas(),
+                EnergyOilImports = await GetEnergyOilImports(),
+                EnergyRenewable = await GetEnergyRenewable(),
+                FinanceBanking = await GetFinanceBanking(),
+                FinanceFundsUnderManagement = await GetFinanceFundsUnderManagement(),
+                FireAndRescueAttendances = await GetFireAndRescueAttendances(),
+                GovSpendingBreakdown = await GetGovSpendingBreakdown(),
+                GovSpendingColours = await GetGovSpendingColours(),
+                HealthChestAndHeartConcerns = await GetHealthChestAndHeartConcerns(),
+                HealthChestAndHeartTotals = await GetHealthChestAndHeartTotals(),
+                HealthMedUnitBedDaysFiveYrAvg = await GetHealthMedUnitBedDaysFiveYrAvg(),
+                HouseBedrooms = await GetHouseBedrooms(),
+                HouseLocalPrices = await GetHouseLocalPrices(),
+                HouseOpenPrices = await GetHouseOpenPrices(),
+                HouseTypes = await GetHouseTypes(),
+                HouseUnits = await GetHouseUnits(),
+                InflationChanges = await GetInflationChanges(),
+                InflationRpixGroupChanges = await GetInflationRpixGroupChanges(),
+                InflationRpiGroupChanges = await GetInflationRpiGroupChanges(),
+                OverseasContributions = await GetOverseasContributions(),
+                PopulationAge = await GetPopulationAge(),
+                PopulationAgeFemale = await GetPopulationAgeFemale(),
+                PopulationAgeMale = await GetPopulationAgeMale(),
+                PopulationBirthplace = await GetPopulationBirthplace(),
+                PopulationChanges = await GetPopulationChanges(),
+                PopulationDistrict = await GetPopulationDistrict(),
+                PopulationParish = await GetPopulationParish(),
+                Population = await GetPopulation(),
+                SailingsCondorPunctuality = await GetSailingsCondorPunctuality(),
+                SailingsCruises = await GetSailingsCruises(),
+                TourismAirByMonth = await GetTourismAirByMonth(),
+                TourismCruises = await GetTourismCruises(),
+                TourismSeaByMonth = await GetTourismSeaByMonth(),
+                Traffic = await GetTraffic(),
+                TrafficClassifications = await GetTrafficClassifications(),
+                TrafficCollisions = await GetTrafficCollisions(),
+                TrafficInjuries = await GetTrafficInjuries(),
+                TransportRegisteredVehicles = await GetTransportRegisteredVehicles(),
+                WasteCommercialAndIndustrialWaste = await GetWasteCommercialAndIndustrialWaste(),
+                WasteConstructionAndDemolition = await GetWasteConstructionAndDemolition(),
+                WasteHousehold = await GetWasteHousehold(),
+                WaterDomesticConsumption = await GetWaterDomesticConsumption(),
+                WaterNitrateConcentration = await GetWaterNitrateConcentration(),
+                WaterPollutionIncidents = await GetWaterPollutionIncidents(),
+                WaterUnaccounted = await GetWaterUnaccounted(),
+                WaterConsumption = await GetWaterConsumption(),
+                WaterQualityCompliance = await GetWaterQualityCompliance(),
+                WaterStorage = await GetWaterStorage(),
+                WeatherFrostDays = await GetWeatherFrostDays(),
+                WeatherMetOfficeAnnual = await GetWeatherMetOfficeAnnual(),
+                WeatherMetOfficeMonthly = await GetWeatherMetOfficeMonthly(),
+            };
+        }
 
         private string GetResourceTextFile(string filename)
         {

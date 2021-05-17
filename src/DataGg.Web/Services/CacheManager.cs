@@ -1,4 +1,5 @@
-﻿using DataGg.Core.Types;
+﻿using DataGg.Core.Guernsey.Buses;
+using DataGg.Core.Types;
 using DataGg.Database;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
@@ -11,20 +12,25 @@ namespace DataGg.Web.Services
 {
     public class CacheManager
     {
-        protected readonly IMemoryCache _memoryCache;
+        private readonly IMemoryCache _memoryCache;
         private readonly ILogger<CacheManager> _logger;
         private readonly RootDb _rootDb;
+        private readonly GuernseyDb _guernseyDb;
 
         public bool CacheRebuildRequested { get; private set; } = false;
 
-        public CachableThing<DataCategory[]> DataCategories { get; set; }
+        public CachableThing<DataCategoryDto[]> DataCategories { get; set; }
+        public CachableThing<DataCache> DataCache { get; set; }
 
-        public CacheManager(IMemoryCache cache, ILogger<CacheManager> logger, RootDb rootDb)
+        public CacheManager(IMemoryCache cache, ILogger<CacheManager> logger, RootDb rootDb, GuernseyDb guernseyDb)
         {
             _memoryCache = cache;
             _logger = logger;
             _rootDb = rootDb;
-            DataCategories = new CachableThing<DataCategory[]>(nameof(DataCategories), _memoryCache, _rootDb.GetData);
+            _guernseyDb = guernseyDb;   
+
+            DataCategories = new CachableThing<DataCategoryDto[]>(nameof(DataCategories), _memoryCache, _rootDb.GetData);
+            DataCache = new CachableThing<DataCache>(nameof(DataCache), _memoryCache, _guernseyDb.GetDataCache);
         }
 
         public async Task DoCache()

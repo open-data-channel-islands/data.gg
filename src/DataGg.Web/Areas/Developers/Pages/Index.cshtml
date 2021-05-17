@@ -2,3 +2,55 @@
 @model DataGg.Web.Areas.Developers.Pages.IndexModel
 @{
 }
+
+<h2>@Model.DataCategory.Name</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover vertical-align-middle" width="100%">
+        <thead>
+            <tr>
+                <th>API</th>
+                <th>Version</th>
+                <th>Description</th>
+                <th>Updated</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ds in Model.DataCategory.DataSets)
+            {
+                <tr>
+                    <td>@ds.Name</td>
+                    <td>1.0</td>
+                    <td>@ds.Desc</td>
+                    <td>
+                        @if (ds.Live)
+                        {
+                            <span class="label label-default">LIVE!</span>
+                        }
+                        else
+                        {
+                            <span>TODO</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("BusUsage", "Data")" class="label label-primary label-format">JSON</a>
+                        @*                        <%= link_to 'XML',
+                            api_path(data_category: @data_category.stub, data_set: data_set.stub, :format => "xml"), class: 'label label-primary label-format'  %>
+                            <%= link_to 'JSON',
+                            api_path(data_category: @data_category.stub, data_set: data_set.stub, :format => "json"), class: 'label label-info label-format' %>
+                            <%= link_to 'Embeddable HTML',
+                            api_path(data_category: @data_category.stub, data_set: data_set.stub, :format => "html", layout: false), class: 'label label-warning label-format' %>
+                            <%= link_to 'HTML',
+                            api_path(data_category: @data_category.stub, data_set: data_set.stub, :format => "html"), class: 'label label-warning label-format' %>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@foreach (var source in Model.DataCategory.DataSets.Select(ds => ds.Source).Distinct().ToArray())
+{
+    <p>Source: <a href="@source">@source</a></p>
+}
+
