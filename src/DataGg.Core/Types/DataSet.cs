@@ -17,4 +17,9 @@ namespace DataGg.Core.Types
         public bool Live { get; set; }
         public string Source { get; set; }
     }
+
+    public class DataSetDto : DataSet
+    {
+        public DataJson[] DataJsons { get; set; }
+    }
 }

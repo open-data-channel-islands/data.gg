@@ -46,6 +46,8 @@ namespace DataGg.Web.Services
 
         public async Task CacheThings()
         {
+            //await _rootDb.InsertAllDataJson();
+
             try
             {
                 await DataCategories.DoCache();

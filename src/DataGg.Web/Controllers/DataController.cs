@@ -16,7 +16,6 @@ using DataGg.Core.Guernsey.Finance;
 using DataGg.Core.Guernsey.FireAndRescue;
 using DataGg.Core.Guernsey.GovernmentSpending;
 using DataGg.Core.Guernsey.Health;
-using DataGg.Core.Guernsey.Herm;
 using DataGg.Core.Guernsey.Houses;
 using DataGg.Core.Guernsey.Inflation;
 using DataGg.Core.Guernsey.OverseasAid;
@@ -56,16 +55,6 @@ namespace DataGg.Web.Controllers
             return dataCache.BusUsage;
         }
 
-
-/*        [HttpGet]
-        [Route("")]
-        [Route("")]
-        public async Task<IEnumerable<HermTrident>> HermTrident()
-        {
-            var dataCache = await _cacheManager.DataCache.Get();
-            return dataCache.HermTrident;
-        }*/
-
         [HttpGet]
         [Route("crime/crimes")]
         [Route("crime/crimes.json")]
@@ -74,6 +63,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.Crime;
         }
+
         [HttpGet]
         [Route("crime/prison_population")]
         [Route("crime/prison_population.json")]
@@ -82,6 +72,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.CrimePrisonPopulation;
         }
+
         [HttpGet]
         [Route("crime/worried")]
         [Route("crime/worried.json")]
@@ -90,6 +81,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.CrimeWorried;
         }
+
         [HttpGet]
         [Route("earnings/earnings_age_group")]
         [Route("earnings/earnings_age_group.json")]
@@ -98,6 +90,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EarningsAgeGroup;
         }
+
         [HttpGet]
         [Route("earnings/earnings_sector")]
         [Route("earnings/earnings_sector.json")]
@@ -106,6 +99,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationEarningsSector;
         }
+
         [HttpGet]
         [Route("earnings/earnings_sex")]
         [Route("earnings/earnings_sex.json")]

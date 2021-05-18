@@ -29,14 +29,14 @@ namespace DataGg.Test
             Assert.IsTrue(busUsage.Length > 0);
         }
 
-        [TestMethod]
+/*        [TestMethod]
         public async Task HermTrident()
         {
             var hermTrident = await _guernseyDb.GetHermTrident();
 
             Assert.IsNotNull(hermTrident);
             Assert.IsTrue(hermTrident.Length > 0);
-        }
+        }*/
 
         [TestMethod]
         public async Task Crime()
@@ -243,14 +243,6 @@ namespace DataGg.Test
 
             Assert.IsNotNull(govSpendingBreakdown);
             Assert.IsTrue(govSpendingBreakdown.Length > 0);
-        }
-
-        [TestMethod]
-        public async Task GovSpendingColours()
-        {
-            var govSpendingColours = await _guernseyDb.GetGovSpendingColours();
-
-            Assert.IsNotNull(govSpendingColours);
         }
 
         [TestMethod]

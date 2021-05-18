@@ -10,7 +10,6 @@ using DataGg.Core.Guernsey.Finance;
 using DataGg.Core.Guernsey.FireAndRescue;
 using DataGg.Core.Guernsey.GovernmentSpending;
 using DataGg.Core.Guernsey.Health;
-using DataGg.Core.Guernsey.Herm;
 using DataGg.Core.Guernsey.Houses;
 using DataGg.Core.Guernsey.Inflation;
 using DataGg.Core.Guernsey.OverseasAid;
@@ -29,7 +28,7 @@ namespace DataGg.Core.Types
     public class DataCache
     {
         public IEnumerable<BusUsage> BusUsage { get; set; }
-        public IEnumerable<HermTrident> HermTrident { get; set; }
+        //public IEnumerable<HermTrident> HermTrident { get; set; }
         public IEnumerable<Crime> Crime { get; set; }
         public IEnumerable<PrisonPopulation> CrimePrisonPopulation { get; set; }
         public IEnumerable<Worried> CrimeWorried { get; set; }
@@ -53,7 +52,6 @@ namespace DataGg.Core.Types
         public IEnumerable<FundsUnderManagement> FinanceFundsUnderManagement { get; set; }
         public IEnumerable<Attendances> FireAndRescueAttendances { get; set; }
         public IEnumerable<Breakdown> GovSpendingBreakdown { get; set; }
-        public Colours GovSpendingColours { get; set; }
         public IEnumerable<ChestAndHeartConcerns> HealthChestAndHeartConcerns { get; set; }
         public IEnumerable<ChestAndHeartTotals> HealthChestAndHeartTotals { get; set; }
         public IEnumerable<MedUnitBedDaysFiveYrAvg> HealthMedUnitBedDaysFiveYrAvg { get; set; }
