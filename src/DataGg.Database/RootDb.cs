@@ -52,7 +52,7 @@ namespace DataGg.Database
             commandType: System.Data.CommandType.StoredProcedure);
         }
 
-        public async Task InsertAllDataJson()
+/*        public async Task InsertAllDataJson()
         {
             var data = await GetData();
 
@@ -90,6 +90,6 @@ namespace DataGg.Database
             using var sr = new System.IO.StreamReader(stream);
 
             return sr.ReadToEnd();
-        }
+        }*/
     }
 }
