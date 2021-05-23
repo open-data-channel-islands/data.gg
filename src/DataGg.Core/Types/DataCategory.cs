@@ -19,7 +19,7 @@ namespace DataGg.Core.Types
 
     public class DataCategoryDto : DataCategory {
 
-        public DataSet[] DataSets { get; set; }
+        public DataSetDto[] DataSets { get; set; }
     }
 
 }

@@ -1,0 +1,36 @@
+﻿@page "/Developers/{DataCategoryStub}/{DataSetStub}/View"
+@using System.Data
+@model DataGg.Web.Areas.Developers.Pages.DataViewModel
+@{
+}
+
+@if (Model.Error)
+{
+    <h2>We've had an error. Sorry.</h2>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    @foreach (DataColumn col in Model.DataTable.Columns)
+                    {
+                        <th scope="col">@col.ColumnName</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.DataTable.Rows)
+                {
+                    <tr>
+                        @foreach (var value in row.ItemArray)
+                        {
+                            <td>@value</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

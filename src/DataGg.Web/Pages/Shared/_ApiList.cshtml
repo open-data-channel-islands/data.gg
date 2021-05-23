@@ -1,8 +1,8 @@
 ﻿@using DataGg.Web.Services
 @inject CacheManager CacheManager
 @{
-    var dataCategories = CacheManager.DataCategories.IsCached ? 
-        (await CacheManager.DataCategories.Get()) : 
+    var dataCategories = CacheManager.DataCategories.IsCached ?
+        (await CacheManager.DataCategories.Get()) :
         null;
 }
 
@@ -11,15 +11,15 @@
         @if (dataCategories != null)
         {
             <div class="table-responsive">
-                <table class="table table-striped table-hover vertical-align-middle" width="100%">
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>API</th>
-                            <th>Description</th>
+                            <th scope="col">API</th>
+                            <th scope="col">Description</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var dc in dataCategories)
+                        @foreach (var dc in dataCategories.OrderBy(dc => dc.ComingSoon).ThenBy(dc => dc.Name))
                         {
                             <tr>
                                 <td>

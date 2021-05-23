@@ -23,7 +23,7 @@ namespace DataGg.Web.Areas.Developers.Pages
             _cacheManager = cacheManager;
         }
 
-        public async void OnGetAsync(string stub)
+        public async Task OnGetAsync(string stub)
         {
             Breadcrums.Add(new Breadcrum(stub, $"/Developers/{stub}"));
 

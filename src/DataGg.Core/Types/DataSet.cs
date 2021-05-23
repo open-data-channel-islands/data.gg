@@ -21,5 +21,8 @@ namespace DataGg.Core.Types
     public class DataSetDto : DataSet
     {
         public DataJson[] DataJsons { get; set; }
+
+        public DataJson CurrentDataJson => DataJsons.OrderBy(dj => dj.Stamp).FirstOrDefault(dj => !dj.Draft);
+
     }
 }

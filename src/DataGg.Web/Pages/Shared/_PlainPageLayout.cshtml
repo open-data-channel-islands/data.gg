@@ -1,0 +1,12 @@
+﻿@model Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+@{
+    Layout = "_Layout.cshtml";
+    IgnoreSection("Scripts"); // wtf is this needed for idenity pages?
+}
+
+<div class="container">
+@*    <div class="page-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>*@
+    @RenderBody()
+</div>

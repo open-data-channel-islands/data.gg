@@ -48,7 +48,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("buses/usage")]
         [Route("buses/usage.json")]
-        public async Task<IEnumerable<BusUsage>> BusUsage()
+        public async Task<IEnumerable<BusUsage>> BusesUsage()
         {
             var dataCache = await _cacheManager.DataCache.Get();
 
@@ -58,7 +58,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("crime/crimes")]
         [Route("crime/crimes.json")]
-        public async Task<IEnumerable<Crime>> Crime()
+        public async Task<IEnumerable<Crime>> CrimeCrimes()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.Crime;
@@ -85,7 +85,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("earnings/earnings_age_group")]
         [Route("earnings/earnings_age_group.json")]
-        public async Task<IEnumerable<EarningsAgeGroup>> EarningsAgeGroup()
+        public async Task<IEnumerable<EarningsAgeGroup>> EarningsEarningsAgeGroup()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EarningsAgeGroup;
@@ -94,7 +94,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("earnings/earnings_sector")]
         [Route("earnings/earnings_sector.json")]
-        public async Task<IEnumerable<EarningsSector>> EducationEarningsSector()
+        public async Task<IEnumerable<EarningsSector>> EarningsEarningsSector()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationEarningsSector;
@@ -103,7 +103,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("earnings/earnings_sex")]
         [Route("earnings/earnings_sex.json")]
-        public async Task<IEnumerable<EarningsSex>> EducationEarningsSex()
+        public async Task<IEnumerable<EarningsSex>> EarningsEarningsSex()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationEarningsSex;
@@ -143,7 +143,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("emissions/source")]
         [Route("emissions/source.json")]
-        public async Task<IEnumerable<Source>> EmissionSource()
+        public async Task<IEnumerable<Source>> EmissionsSource()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmissionSource;
@@ -151,7 +151,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("emissions/types")]
         [Route("emissions/types.json")]
-        public async Task<IEnumerable<Core.Guernsey.Emissions.Type>> EmissionType()
+        public async Task<IEnumerable<Core.Guernsey.Emissions.Type>> EmissionsTypes()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmissionType;
@@ -159,7 +159,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("employment/sector")]
         [Route("employment/sector.json")]
-        public async Task<IEnumerable<Sector>> EmploymentSector()
+        public async Task<IEnumerable<Sector>> EmploymentSectors()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmploymentSector;
@@ -199,7 +199,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("energy/oil")]
         [Route("energy/oil.json")]
-        public async Task<IEnumerable<OilImports>> EnergyOilImports()
+        public async Task<IEnumerable<OilImports>> EnergyOil()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EnergyOilImports;
@@ -255,7 +255,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("health/concerns")]
         [Route("health/concerns.json")]
-        public async Task<IEnumerable<ChestAndHeartConcerns>> HealthChestAndHeartConcerns()
+        public async Task<IEnumerable<ChestAndHeartConcerns>> HealthConcerns()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HealthChestAndHeartConcerns;
@@ -263,7 +263,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("health/totals")]
         [Route("health/totals.json")]
-        public async Task<IEnumerable<ChestAndHeartTotals>> HealthChestAndHeartTotals()
+        public async Task<IEnumerable<ChestAndHeartTotals>> HealthTotals()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HealthChestAndHeartTotals;
@@ -279,7 +279,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("housing/bedrooms")]
         [Route("housing/bedrooms.json")]
-        public async Task<IEnumerable<Bedroom>> HouseBedrooms()
+        public async Task<IEnumerable<Bedroom>> HousingBedrooms()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseBedrooms;
@@ -287,7 +287,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("housing/local_prices")]
         [Route("housing/local_prices.json")]
-        public async Task<IEnumerable<LocalPrices>> HouseLocalPrices()
+        public async Task<IEnumerable<LocalPrices>> HousingLocalPrices()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseLocalPrices;
@@ -295,7 +295,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("housing/open_prices")]
         [Route("housing/open_prices.json")]
-        public async Task<IEnumerable<OpenPrices>> HouseOpenPrices()
+        public async Task<IEnumerable<OpenPrices>> HousingOpenPrices()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseOpenPrices;
@@ -303,7 +303,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("housing/types")]
         [Route("housing/types.json")]
-        public async Task<IEnumerable<Types>> HouseTypes()
+        public async Task<IEnumerable<Types>> HousingTypes()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseTypes;
@@ -311,7 +311,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("housing/units")]
         [Route("housing/units.json")]
-        public async Task<IEnumerable<Units>> HouseUnits()
+        public async Task<IEnumerable<Units>> HousingUnits()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseUnits;
@@ -396,6 +396,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationDistrict;
         }
+
         [HttpGet]
         [Route("population/parish")]
         [Route("population/parish.json")]
@@ -404,14 +405,16 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationParish;
         }
+
         [HttpGet]
         [Route("population/population")]
         [Route("population/population.json")]
-        public async Task<IEnumerable<Population>> Population()
+        public async Task<IEnumerable<Population>> PopulationPopulation()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.Population;
         }
+
         [HttpGet]
         [Route("sailings/condor_punctuality")]
         [Route("sailings/condor_punctuality.json")]
@@ -420,6 +423,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.SailingsCondorPunctuality;
         }
+
         [HttpGet]
         [Route("sailings/cruises")]
         [Route("sailings/cruises.json")]
@@ -428,6 +432,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.SailingsCruises;
         }
+
         [HttpGet]
         [Route("tourism/air_by_month")]
         [Route("tourism/air_by_month.json")]
@@ -455,7 +460,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("traffic/traffic")]
         [Route("traffic/traffic.json")]
-        public async Task<IEnumerable<Traffic>> Traffic()
+        public async Task<IEnumerable<Traffic>> TrafficTraffic()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.Traffic;
@@ -543,7 +548,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("water/unaccounted-water")]
         [Route("water/unaccounted-water.json")]
-        public async Task<IEnumerable<UnaccountedWater>> WaterUnaccounted()
+        public async Task<IEnumerable<UnaccountedWater>> WaterUnaccountedWater()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WaterUnaccounted;
@@ -551,7 +556,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("water/water-consumption")]
         [Route("water/water-consumption.json")]
-        public async Task<IEnumerable<WaterConsumption>> WaterConsumption()
+        public async Task<IEnumerable<WaterConsumption>> WaterWaterConsumption()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WaterConsumption;
@@ -559,7 +564,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("water/water-quality-compliance")]
         [Route("water/water-quality-compliance.json")]
-        public async Task<IEnumerable<WaterQualityCompliance>> WaterQualityCompliance()
+        public async Task<IEnumerable<WaterQualityCompliance>> WaterWaterQualityCompliance()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WaterQualityCompliance;
@@ -567,7 +572,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("water/water-storage")]
         [Route("water/water-storage.json")]
-        public async Task<IEnumerable<WaterStorage>> WaterStorage()
+        public async Task<IEnumerable<WaterStorage>> WaterWaterStorage()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WaterStorage;
@@ -583,7 +588,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("weather/annual")]
         [Route("weather/annual.json")]
-        public async Task<IEnumerable<MetOfficeAnnual>> WeatherMetOfficeAnnual()
+        public async Task<IEnumerable<MetOfficeAnnual>> WeatherAnnual()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WeatherMetOfficeAnnual;
@@ -591,7 +596,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("weather/monthly")]
         [Route("weather/monthly.json")]
-        public async Task<IEnumerable<MetOfficeMonthly>> WeatherMetOfficeMonthly()
+        public async Task<IEnumerable<MetOfficeMonthly>> WeatherMonthly()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WeatherMetOfficeMonthly;
