@@ -54,6 +54,9 @@ namespace DataGg.Web
                pipeline.AddCssBundle("/css/bundle.css", new string[] { "wwwroot/css/*.css" }).UseContentRoot();
            });
 
+            // sensible use of http client
+            services.AddHttpClient();
+
             // emailz
             services.AddTransient<IEmailSender, EmailSender>();
 
