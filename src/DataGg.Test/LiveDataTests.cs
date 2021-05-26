@@ -22,5 +22,12 @@ namespace DataGg.Test
             await scraper.Get();
         }
 
+        [TestMethod]
+        public async Task Harbour()
+        {
+            var scraper = new HarbourScraper(new HttpClient());
+            await scraper.Get();
+        }
+
     }
 }
