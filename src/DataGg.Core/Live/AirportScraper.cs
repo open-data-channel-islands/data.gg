@@ -68,9 +68,9 @@ namespace DataGg.Core.Live
                 var time = cells[1].InnerText;
                 var date = cells[2].SelectSingleNode(".//span[@class='date-large']").InnerText;
 
-                var dateParsed = DateTime.ParseExact($"{date} {time}",
-                    "dd/MM/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-GB"),
-                    DateTimeStyles.None);
+
+                var offsetParsed = DateTimeOffset.ParseExact($"{date} {time}",
+                    "dd/MM/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-GB"));
 
                 var dir = cells[3].InnerText;
                 var flightNo = cells[4].InnerText;
@@ -78,7 +78,7 @@ namespace DataGg.Core.Live
 
                 arrivals.Add(new Arrival()
                 {
-                    Time = dateParsed,
+                    Time = offsetParsed,
                     Source = dir,
                     FlightNumber = flightNo,
                     Status = status,
@@ -97,10 +97,6 @@ namespace DataGg.Core.Live
 
             var rows = departuresTable.SelectNodes(".//tr");
 
-            // TimeZoneInfo GMTST = TZConvert.GetTimeZoneInfo("GMT Standard Time");
-            //DateTimeOffset date = TimeZoneInfo.ConvertTime(new DateTime(year, month, day), GMTST);
-            //var guernseyTimeZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
-
             foreach (var r in rows)
             {
                 var cells = r.SelectNodes(".//td");
@@ -113,9 +109,9 @@ namespace DataGg.Core.Live
                 var time = cells[1].InnerText;
                 var date = cells[2].SelectSingleNode(".//span[@class='date-large']").InnerText;
 
-                var dateParsed = DateTime.ParseExact($"{date} {time}",
-                    "dd/MM/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-GB"),
-                    DateTimeStyles.None);
+                var offsetParsed = DateTimeOffset.ParseExact($"{date} {time}",
+                    "dd/MM/yyyy HH:mm", CultureInfo.CreateSpecificCulture("en-GB"));
+
 
                 var dir = cells[3].InnerText;
                 var flightNo = cells[4].InnerText;
@@ -123,7 +119,7 @@ namespace DataGg.Core.Live
 
                 departures.Add(new Departure()
                 {
-                    Time = dateParsed,
+                    Time = offsetParsed,
                     Dest = dir,
                     FlightNumber = flightNo,
                     Status = status,

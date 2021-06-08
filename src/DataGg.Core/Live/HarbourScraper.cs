@@ -79,11 +79,11 @@ namespace DataGg.Core.Live
 
                 var vessel = item.SelectSingleNode("./vesselname").InnerText;
                 var time = item.SelectSingleNode("./eta_original").InnerText;
-                var timeParsed = DateTime.Parse(time);
+                var timeParsed = DateTimeOffset.Parse(time);
 
                 var source = item.SelectSingleNode("./from").InnerText;
                 var arrived = item.SelectSingleNode("./ata").InnerText;
-                var arrivedParsed = (DateTime?)(!string.IsNullOrEmpty(arrived) ? DateTime.Parse(arrived) : null);
+                var arrivedParsed = (DateTimeOffset?)(!string.IsNullOrEmpty(arrived) ? DateTimeOffset.Parse(arrived) : null);
 
                 arrivals.Add(new Harbour
                 {
@@ -91,8 +91,8 @@ namespace DataGg.Core.Live
                     Time = timeParsed,
                     Source = source,
                     Type = "Arrival",
-                    Arrived = arrivedParsed
-                });
+                    Arrived = arrivedParsed?.ToString("HH:mmA")
+                }); ;
             }
 
             return arrivals.ToArray();
@@ -118,11 +118,11 @@ namespace DataGg.Core.Live
 
                 var vessel = item.SelectSingleNode("./vesselname").InnerText;
                 var time = item.SelectSingleNode("./etd_original").InnerText;
-                var timeParsed = DateTime.Parse(time);
+                var timeParsed = DateTimeOffset.Parse(time);
 
                 var source = item.SelectSingleNode("./to").InnerText;
                 var departed = item.SelectSingleNode("./atd").InnerText;
-                var departedParsed = (DateTime?)(!string.IsNullOrEmpty(departed) ? DateTime.Parse(departed) : null);
+                var departedParsed = (DateTimeOffset?)(!string.IsNullOrEmpty(departed) ? DateTimeOffset.Parse(departed) : null);
 
                 departures.Add(new Harbour
                 {
@@ -130,7 +130,7 @@ namespace DataGg.Core.Live
                     Time = timeParsed,
                     Destination = source,
                     Type = "Departure",
-                    Departed = departedParsed
+                    Departed = departedParsed?.ToString("HH:mmA")
                 });
             }
 

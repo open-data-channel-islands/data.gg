@@ -1,4 +1,5 @@
 using DataGg.Database;
+using DataGg.Web.Converters;
 using DataGg.Web.Data;
 using DataGg.Web.Services;
 using Microsoft.AspNetCore.Builder;
@@ -40,7 +41,11 @@ namespace DataGg.Web
             services.AddRazorPages();
 
             /* ADDED FROM API EXAMPLE SLN */
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                //options.JsonSerializerOptions.Converters.Add(new IsoDateFormatter());
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "data.gg", Version = "v1" });

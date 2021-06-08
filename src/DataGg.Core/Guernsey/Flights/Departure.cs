@@ -9,7 +9,7 @@ namespace DataGg.Core.Guernsey.Flights
     public abstract class FlightBase
     {
         public string FlightNumber { get; set; }
-        public DateTime Time { get; set; }
+        public DateTimeOffset Time { get; set; }
         public string Status { get; set; }
     }
     public class Departure : FlightBase 

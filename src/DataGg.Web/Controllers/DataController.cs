@@ -640,7 +640,7 @@ namespace DataGg.Web.Controllers
 
         [HttpGet]
         [Route("sailings/harbour")]
-        [Route("sailing/harbour.json")]
+        [Route("sailings/harbour.json")]
         public async Task<IEnumerable<Harbour>> SailingsHarbour()
         {
             var liveDataCache = await _cacheManager.GetLiveDataCache();

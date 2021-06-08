@@ -10,17 +10,17 @@ namespace DataGg.Core.Guernsey.Sailings
     public class Harbour
     {
         public string Vessel { get; set; }
-        public DateTime Time { get; set; }
+        public DateTimeOffset Time { get; set; }
         public string Type { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Destination { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? Departed { get; set; }
+        public string Departed { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Source { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? Arrived { get; set; }
+        public string Arrived { get; set; }
     }
 
 }
