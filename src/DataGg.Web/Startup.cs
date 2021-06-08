@@ -43,7 +43,12 @@ namespace DataGg.Web
             /* ADDED FROM API EXAMPLE SLN */
             services.AddControllers().AddJsonOptions(options =>
             {
+
                 //options.JsonSerializerOptions.Converters.Add(new IsoDateFormatter());
+
+                // obviously this very clearly means we want camel case property names
+                // u wot mate
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
 
             services.AddSwaggerGen(c =>
