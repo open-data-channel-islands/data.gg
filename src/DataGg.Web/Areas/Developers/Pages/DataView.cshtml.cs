@@ -57,7 +57,31 @@ namespace DataGg.Web.Areas.Developers.Pages
 
             try
             {
-                DataTable = JsonConvert.DeserializeObject<DataTable>(DataSet.CurrentDataJson.Json);
+                if (DataSet.Live)
+                {
+                    var liveData = await _cacheManager.GetLiveDataCache();
+
+                    var json = string.Empty;
+
+                    switch (DataSet.Filename)
+                    {
+                        case LiveDataCache.FlightsArrivals:
+                            json = System.Text.Json.JsonSerializer.Serialize(liveData.AirportArrivals);
+                            break;
+                        case LiveDataCache.FlightsDepartures:
+                            json = System.Text.Json.JsonSerializer.Serialize(liveData.AirportDepartures);
+                            break;
+                        case LiveDataCache.SailingsHarbour:
+                            json = System.Text.Json.JsonSerializer.Serialize(liveData.Harbour);
+                            break;
+                    }
+                    
+                    DataTable = JsonConvert.DeserializeObject<DataTable>(json);
+                }
+                else
+                {
+                    DataTable = JsonConvert.DeserializeObject<DataTable>(DataSet.CurrentDataJson.Json);
+                }
             }
             catch(Exception ex)
             {

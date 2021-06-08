@@ -49,7 +49,7 @@ namespace DataGg.Web.Services
                 return false;
             }
 
-            DateTime currentTime = DateTime.Now;
+            DateTime currentTime = DateTime.UtcNow;
             var timePassed = currentTime - _lastCache;
 
             if (timePassed.TotalHours >= RefreshHours)

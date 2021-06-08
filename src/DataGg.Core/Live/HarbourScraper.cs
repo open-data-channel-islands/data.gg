@@ -25,7 +25,7 @@ namespace DataGg.Core.Live
             _client = client;
         }
 
-        public async Task<HarbourScraperResult> Get()
+        public async Task<Harbour[]> Get()
         {
             var arrivals1 = GetUrlArrivals(ArrivalUrl);
             var arrivals2 = GetUrlArrivals(ArrivalTomUrl);
@@ -35,21 +35,18 @@ namespace DataGg.Core.Live
             var departures2 = GetUrlDepartures(DepartureTomUrl);
 
 
-            var arrivals = (await arrivals1).Union(await arrivals2);
-            var departures = (await departures1).Union(await departures2);
+            var arrivals = (await arrivals1).Union(await arrivals2).ToArray();
+            var departures = (await departures1).Union(await departures2).ToArray();
 
-            return new HarbourScraperResult
-            {
-                Departures = departures.ToArray(),
-                Arrivals = arrivals.ToArray()
-            };
+            return departures.Union(arrivals).ToArray();
+
         }
 
         public async Task<string> GetString(string url)
         {
-            _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            //_client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            var response = await _client.PostAsync(url, new StringContent(string.Empty, Encoding.ASCII, "application/json"));
+            var response = await _client.PostAsync(url, new StringContent(string.Empty, Encoding.ASCII, "application/xml"));
 
             if (!response.IsSuccessStatusCode)
             {
@@ -61,7 +58,7 @@ namespace DataGg.Core.Live
             return content;
         }
 
-        public async Task<HarbourArrival[]> GetUrlArrivals(string url)
+        public async Task<Harbour[]> GetUrlArrivals(string url)
         {
 
             var content = await GetString(url);
@@ -73,10 +70,10 @@ namespace DataGg.Core.Live
 
             if (items == null)
             {
-                return new HarbourArrival[0];
+                return new Harbour[0];
             }
 
-            var arrivals = new List<HarbourArrival>();
+            var arrivals = new List<Harbour>();
             foreach (var item in items)
             {
 
@@ -88,7 +85,7 @@ namespace DataGg.Core.Live
                 var arrived = item.SelectSingleNode("./ata").InnerText;
                 var arrivedParsed = (DateTime?)(!string.IsNullOrEmpty(arrived) ? DateTime.Parse(arrived) : null);
 
-                arrivals.Add(new HarbourArrival
+                arrivals.Add(new Harbour
                 {
                     Vessel = vessel,
                     Time = timeParsed,
@@ -101,7 +98,7 @@ namespace DataGg.Core.Live
             return arrivals.ToArray();
         }
 
-        public async Task<HarbourDeparture[]> GetUrlDepartures(string url)
+        public async Task<Harbour[]> GetUrlDepartures(string url)
         {
 
             var content = await GetString(url);
@@ -112,10 +109,10 @@ namespace DataGg.Core.Live
             var items = html.DocumentNode.SelectNodes("/arrayofportcall/portcall");
             if (items == null)
             {
-                return new HarbourDeparture[0];
+                return new Harbour[0];
             }
 
-            var departures = new List<HarbourDeparture>();
+            var departures = new List<Harbour>();
             foreach (var item in items)
             {
 
@@ -127,7 +124,7 @@ namespace DataGg.Core.Live
                 var departed = item.SelectSingleNode("./atd").InnerText;
                 var departedParsed = (DateTime?)(!string.IsNullOrEmpty(departed) ? DateTime.Parse(departed) : null);
 
-                departures.Add(new HarbourDeparture
+                departures.Add(new Harbour
                 {
                     Vessel = vessel,
                     Time = timeParsed,
@@ -141,9 +138,4 @@ namespace DataGg.Core.Live
         }
     }
 
-    public class HarbourScraperResult
-    {
-        public HarbourArrival[] Arrivals { get; set; }
-        public HarbourDeparture[] Departures { get; set; }
-    }
 }

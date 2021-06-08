@@ -28,7 +28,6 @@ namespace DataGg.Core.Types
     public class DataCache
     {
         public IEnumerable<BusUsage> BusUsage { get; set; }
-        //public IEnumerable<HermTrident> HermTrident { get; set; }
         public IEnumerable<Crime> Crime { get; set; }
         public IEnumerable<PrisonPopulation> CrimePrisonPopulation { get; set; }
         public IEnumerable<Worried> CrimeWorried { get; set; }

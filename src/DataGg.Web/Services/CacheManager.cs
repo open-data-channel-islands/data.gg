@@ -1,4 +1,5 @@
 ﻿using DataGg.Core.Guernsey.Buses;
+using DataGg.Core.Live;
 using DataGg.Core.Types;
 using DataGg.Database;
 using Microsoft.Extensions.Caching.Memory;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace DataGg.Web.Services
@@ -21,7 +23,9 @@ namespace DataGg.Web.Services
 
         public CachableThing<DataCategoryDto[]> DataCategories { get; set; }
         public CachableThing<DataCache> DataCache { get; set; }
+        private CachableThing<LiveDataCache> LiveDataCache { get; set; }
 
+     
         public CacheManager(IMemoryCache cache, ILogger<CacheManager> logger, RootDb rootDb, GuernseyDb guernseyDb)
         {
             _memoryCache = cache;
@@ -31,6 +35,47 @@ namespace DataGg.Web.Services
 
             DataCategories = new CachableThing<DataCategoryDto[]>(nameof(DataCategories), _memoryCache, _rootDb.GetData);
             DataCache = new CachableThing<DataCache>(nameof(DataCache), _memoryCache, _guernseyDb.GetDataCache);
+
+            LiveDataCache = new CachableThing<LiveDataCache>(nameof(LiveDataCache), _memoryCache,
+                async() =>
+                {
+                    // TODO: Figure out good way to use the injected client
+                    using var client = new HttpClient();
+
+                    var airportScraper = new AirportScraper(client);
+                    var airportScraperTask = airportScraper.Get();
+
+                    var harbourScraper = new HarbourScraper(client);
+                    var harbourScraperTask = harbourScraper.Get();
+
+                    var airportLatest = await airportScraperTask;
+                    var harbourLatest = await harbourScraperTask;
+
+                    return new LiveDataCache
+                    {
+                        AirportArrivals = airportLatest.Arrivals,
+                        AirportDepartures = airportLatest.Departures,
+                        Harbour = harbourLatest,
+ 
+                    };
+                });
+        }
+
+        public async Task<LiveDataCache> GetLiveDataCache()
+        {
+            while (LiveDataCache.CacheInProgress)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1));
+            }
+
+            var now = DateTime.UtcNow;
+
+            if (LiveDataCache.LastCache.AddMinutes(1) < now)
+            {
+                await LiveDataCache.DoCache();
+            }
+
+            return await LiveDataCache.Get();
         }
 
         public async Task DoCache()
@@ -51,6 +96,8 @@ namespace DataGg.Web.Services
             try
             {
                 await DataCategories.DoCache();
+                await DataCache.DoCache();
+                await LiveDataCache.DoCache();
 
             }
             catch (Exception ex)
@@ -81,7 +128,7 @@ namespace DataGg.Web.Services
         private readonly IMemoryCache _memoryCache;
         private readonly Func<Task<T>> _getter;
 
-        public DateTime LastCache { get; private set; } = DateTime.Now;
+        public DateTime LastCache { get; private set; } = DateTime.UtcNow;
         public bool CacheInProgress { get; private set; } = false;
         public bool IsCached => _memoryCache.TryGetValue(_cacheKey, out T items);
         public string Name { get { return _cacheKey; } }
@@ -112,7 +159,7 @@ namespace DataGg.Web.Services
 
                 var dataToCache = await _getter.Invoke();
                 _memoryCache.Set(_cacheKey, dataToCache);
-                LastCache = DateTime.Now;
+                LastCache = DateTime.UtcNow;
             }
             finally
             {
