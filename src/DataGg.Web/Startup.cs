@@ -107,9 +107,13 @@ namespace DataGg.Web
             app.UseWebOptimizer();
             /**/
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ServeUnknownFileTypes = true,
+            });
 
-            app.UseRouting();
+
+                app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();

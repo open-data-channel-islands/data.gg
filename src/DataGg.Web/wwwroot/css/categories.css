@@ -12,7 +12,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "icons";
-    src: url("../fonts/icons.svg#icons") format("svg");
+    src: url("/fonts/icons.svg#icons") format("svg");
   }
 }
 
