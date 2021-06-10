@@ -1,0 +1,69 @@
+﻿@model ViewComponents.FrontChartViewComponentModel
+
+@{
+    var chartOptions = new Highcharts
+    {
+        Credits = new() { Enabled = false },
+        Chart = new() {  BackgroundColor = "transparent" },
+
+        Title = new Title
+        {
+            Text = "Bus Usagae by Month"
+        },
+        XAxis = new List<XAxis>
+{
+                new XAxis
+                {
+                    AllowDecimals = false,
+                    Categories = Model.BusUsageLabels,
+                    Labels = new XAxisLabels { Step = 12@*, Rotation = -40*@ }
+                }
+            },
+        YAxis = new List<YAxis> {
+                new YAxis
+                {
+                    Title = new YAxisTitle
+                    {
+                        Text = "Passanger count"
+                    },
+                }
+            },
+        Tooltip = new Tooltip
+        {
+            PointFormat = "<b>{point.y:,.0f}</b> passangers"
+        },
+        PlotOptions = new PlotOptions
+        {
+            Area = new PlotOptionsArea
+            {
+                Marker = new PlotOptionsAreaMarker
+                {
+                    Enabled = false,
+                    Symbol = "circle",
+                    Radius = 2,
+                    States = new PlotOptionsAreaMarkerStates
+                    {
+                        Hover = new PlotOptionsAreaMarkerStatesHover
+                        {
+                            Enabled = true
+                        }
+                    }
+                }
+
+            }
+        },
+        Series = new List<Series> {
+                new AreaSeries
+                {
+                    ShowInLegend = false,
+                    Name = "Guernsey",
+                    Data = Model.BusUsage
+                },
+        }
+    };
+
+    chartOptions.ID = "chart";
+    var renderer = new HighchartsRenderer(chartOptions);
+}
+
+@Html.Raw(renderer.RenderHtml())

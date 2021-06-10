@@ -22,7 +22,9 @@
 <div class="front-page-feature-triangles">
     <div class="container">
         <h2 class="faint-heading">Guernsey Data, Visualised</h2>
-        @*<%= render partial: "charts/front_page" %>*@
+
+        @await Component.InvokeAsync("FrontChart", new { })
+
         <h2 class="faint-heading">CHARTS</h2>
 
         <partial name="Shared/_ChartList.cshtml" />

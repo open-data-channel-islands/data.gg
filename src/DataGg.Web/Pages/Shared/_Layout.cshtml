@@ -6,11 +6,8 @@
     <title>@ViewData["Title"] - data.gg</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-    @*<link rel="stylesheet" href="~/css/site.css" />*@
-
     <link rel="stylesheet" href="/css/bundle.css" />
-
-
+    
     <link rel="shortcut icon" href="/favicon.png">
 </head>
 <body>
@@ -38,10 +35,10 @@
             </div>
         </nav>
     </header>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-   
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
 
     <footer class="footer text-muted">
         <div class="container">
@@ -78,6 +75,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
