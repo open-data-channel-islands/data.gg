@@ -363,3 +363,4 @@ FodyWeavers.xsd
 
 # Open Source - don't want app app settings
 appsettings.*
+/DataGg.Web/Properties/ServiceDependencies/datagg - Web Deploy/*
