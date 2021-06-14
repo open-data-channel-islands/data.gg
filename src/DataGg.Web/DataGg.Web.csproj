@@ -33,4 +33,28 @@
     <ProjectReference Include="..\DataGg.Database\DataGg.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Areas\Charts\Pages\Buses - Copy %282%29 - Copy.cshtml.cs">
+      <DependentUpon>Buses - Copy (2).cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Areas\Charts\Pages\Buses - Copy %282%29.cshtml.cs">
+      <DependentUpon>Buses.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Areas\Charts\Pages\Buses - Copy - Copy %282%29.cshtml.cs">
+      <DependentUpon>Buses - Copy.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Areas\Charts\Pages\Buses - Copy - Copy - Copy.cshtml.cs">
+      <DependentUpon>Buses - Copy - Copy.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Areas\Charts\Pages\Buses - Copy - Copy.cshtml.cs">
+      <DependentUpon>Buses - Copy.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Areas\Charts\Pages\Buses - Copy.cshtml.cs">
+      <DependentUpon>Buses.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Areas\Charts\Pages\HousingMeanAvg - Copy.cshtml.cs">
+      <DependentUpon>HousingMeanAvg.cshtml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

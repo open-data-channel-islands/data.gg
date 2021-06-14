@@ -27,7 +27,6 @@
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-page="Apps">Apps</a></li>
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-page="Maps">Maps</a></li>
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-page="About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-page="Contribute">Contribute</a></li>
                         <li class="nav-item"><a class="nav-link" asp-area="" asp-page="Help">Help</a></li>
                     </ul>
                     @*<partial name="_LoginPartial" />*@
@@ -53,7 +52,6 @@
                         <li><a asp-area="" asp-page="/Maps">Maps</a></li>
                         <li><a asp-area="" asp-page="/Apps">Apps</a></li>
                         <li><a asp-area="" asp-page="/About">About</a></li>
-                        <li><a asp-area="" asp-page="/Contribute">Contribute</a></li>
                         <li><a asp-area="" asp-page="/Privacy">Privacy</a></li>
                         <li><a asp-area="" asp-page="/Help">Help</a></li>
                     </ul>
@@ -78,5 +76,14 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTab a').on('click', function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            });
+        });
+    </script>
 </body>
 </html>

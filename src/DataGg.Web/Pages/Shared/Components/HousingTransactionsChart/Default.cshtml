@@ -1,0 +1,7 @@
+﻿@model Models.AreaChartViewModel
+
+@{
+    var renderer = Model.Build();
+}
+
+@Html.Raw(renderer.RenderHtml())

@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace DataGg.Web.ViewComponents
 {
-    public class FrontChartViewComponent : ViewComponent
+    public class BusUsageChartViewComponent : ViewComponent
     {
 
         private readonly CacheManager _cacheManager;
 
-        public FrontChartViewComponent(CacheManager cacheManager)
+        public BusUsageChartViewComponent(CacheManager cacheManager)
         {
 
             _cacheManager = cacheManager;
@@ -24,7 +24,7 @@ namespace DataGg.Web.ViewComponents
         {
             var dataCache = await _cacheManager.DataCache.Get();
 
-            var model = new FrontChartViewComponentModel();
+            var model = new BusUsageChartViewComponentModel();
 
             var culture = CultureInfo.GetCultureInfo("en-GB");
 
@@ -61,7 +61,7 @@ namespace DataGg.Web.ViewComponents
         }
     }
 
-    public class FrontChartViewComponentModel
+    public class BusUsageChartViewComponentModel
     {
         public List<AreaSeriesData> BusUsage { get; set; }
         public List<string> BusUsageLabels { get; set; }

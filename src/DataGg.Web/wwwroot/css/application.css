@@ -114,3 +114,8 @@ h2.faint-heading {
     margin: 40px 0 20px;
     border-bottom: 1px solid #eeeeee;
 }
+
+.blockquote{
+    font-style: italic;
+    font-size: 1.1rem;
+}
