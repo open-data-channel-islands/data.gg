@@ -34,6 +34,7 @@ namespace DataGg.Web.Controllers
     [Route("api")]
     [Route("api/1.1")]
     [Route("api/1.0")]
+    [Route("api/v1")]
 
     [ApiController]
     public class DataController : ControllerBase

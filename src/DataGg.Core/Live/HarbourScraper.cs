@@ -91,8 +91,8 @@ namespace DataGg.Core.Live
                     Time = timeParsed,
                     Source = source,
                     Type = "Arrival",
-                    Arrived = arrivedParsed?.ToString("HH:mmA")
-                }); ;
+                    Arrived = arrivedParsed?.ToString("HH:mmA") ?? string.Empty
+                });
             }
 
             return arrivals.ToArray();
@@ -130,7 +130,7 @@ namespace DataGg.Core.Live
                     Time = timeParsed,
                     Destination = source,
                     Type = "Departure",
-                    Departed = departedParsed?.ToString("HH:mmA")
+                    Departed = departedParsed?.ToString("HH:mmA") ?? string.Empty
                 });
             }
 
