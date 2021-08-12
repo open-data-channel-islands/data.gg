@@ -1,0 +1,19 @@
+﻿@page "/Charts/Crime"
+
+@model DataGg.Web.Areas.Charts.Pages.Crime
+@{
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="prison-pop-tab" data-toggle="tab" href="#prison-pop" role="tab" aria-controls="prison-pop" aria-selected="true">Prison</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="prison-pop" role="tabpanel" aria-labelledby="prison-pop-tab">
+        @await Component.InvokeAsync("PrisonPopulationChart", new { })
+    </div>
+</div>

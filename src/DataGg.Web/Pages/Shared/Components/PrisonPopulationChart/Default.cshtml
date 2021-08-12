@@ -1,0 +1,68 @@
+﻿@model ViewComponents.PrisonPopulationChartViewComponentModel
+
+@{
+    var chartOptions = new Highcharts
+    {
+        Credits = new() { Enabled = false },
+        Chart = new() {  BackgroundColor = "transparent" },
+
+        Title = new Title
+        {
+            Text = "Prison Population by Year"
+        },
+        XAxis = new List<XAxis>
+{
+                new XAxis
+                {
+                    AllowDecimals = false,
+                    Categories = Model.PrisonPopulationLabels
+                }
+            },
+        YAxis = new List<YAxis> {
+                new YAxis
+                {
+                    Title = new YAxisTitle
+                    {
+                        Text = "prisoner count"
+                    },
+                }
+            },
+        Tooltip = new Tooltip
+        {
+            PointFormat = "<b>{point.y:,.0f}</b> prisoners"
+        },
+        PlotOptions = new PlotOptions
+        {
+            Area = new PlotOptionsArea
+            {
+                Marker = new PlotOptionsAreaMarker
+                {
+                    Enabled = false,
+                    Symbol = "circle",
+                    Radius = 2,
+                    States = new PlotOptionsAreaMarkerStates
+                    {
+                        Hover = new PlotOptionsAreaMarkerStatesHover
+                        {
+                            Enabled = true
+                        }
+                    }
+                }
+
+            }
+        },
+        Series = new List<Series> {
+                new AreaSeries
+                {
+                    ShowInLegend = false,
+                    Name = "Guernsey",
+                    Data = Model.PrisonPopulation
+                },
+        }
+    };
+
+    chartOptions.ID = "chart";
+    var renderer = new HighchartsRenderer(chartOptions);
+}
+
+@Html.Raw(renderer.RenderHtml())

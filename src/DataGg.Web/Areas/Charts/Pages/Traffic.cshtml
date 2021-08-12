@@ -1,0 +1,19 @@
+﻿@page "/Charts/Traffic"
+
+@model DataGg.Web.Areas.Charts.Pages.Traffic
+@{
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="traffic-collision-class-tab" data-toggle="tab" href="#traffic-collision-class" role="tab" aria-controls="traffic-collision-class" aria-selected="true">Prison</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="traffic-collision-class" role="tabpanel" aria-labelledby="traffic-collision-class-tab">
+        @await Component.InvokeAsync("PrisonPopulationChart", new { })
+    </div>
+</div>
