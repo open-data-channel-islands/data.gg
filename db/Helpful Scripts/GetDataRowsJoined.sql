@@ -1,9 +1,9 @@
-select dc.name ,ds.Name, ds.Stub, ds.Source, dj.id, dj.JSON from dbo.dataset ds
+select dc.name ,ds.Name, ds.Stub, ds.Source, dj.Stamp, dj.id, dj.JSON from dbo.dataset ds
 join dbo.datajson dj on dj.datasetid = ds.id
 join dbo.datacategory dc on dc.id = ds.datacategoryid
 order by dc.name, ds.name
 
--- update datajson SET
--- Json = '[{"Year":2005,"Fatal":2,"Serious":25,"Slight":166},{"Year":2006,"Fatal":1,"Serious":19,"Slight":161},{"Year":2007,"Fatal":0,"Serious":21,"Slight":154},{"Year":2008,"Fatal":2,"Serious":21,"Slight":141},{"Year":2009,"Fatal":3,"Serious":15,"Slight":101},{"Year":2010,"Fatal":2,"Serious":9,"Slight":118},{"Year":2011,"Fatal":4,"Serious":10,"Slight":97},{"Year":2012,"Fatal":2,"Serious":13,"Slight":128},{"Year":2013,"Fatal":1,"Serious":9,"Slight":111},{"Year":2014,"Fatal":0,"Serious":11,"Slight":145},{"Year":2015,"Fatal":1,"Serious":10,"Slight":88},{"Year":2016,"Fatal":0,"Serious":9,"Slight":133},{"Year":2017,"Fatal":2,"Serious":18,"Slight":101},{"Year":2018,"Fatal":0,"Serious":7,"Slight":119},{"Year":2019,"Fatal":0,"Serious":7,"Slight":119},{"Year":2020,"Fatal":0,"Serious":8,"Slight":79}]'
--- , Stamp = GETDATE()
--- where id = 52
+--update datajson SET
+--Json = '[{"Year":2008,"Recovery Land reclamation":122.9,"Reused":41.6,"Recovery other":null,"Landfill":0.2,"Total":164.7},{"Year":2009,"Recovery Land reclamation":89.7,"Reused":40.8,"Recovery other":null,"Landfill":0.3,"Total":130.8},{"Year":2010,"Recovery Land reclamation":125.4,"Reused":41.3,"Recovery other":null,"Landfill":0.2,"Total":167},{"Year":2011,"Recovery Land reclamation":101.5,"Reused":53.8,"Recovery other":null,"Landfill":0.1,"Total":155.3},{"Year":2012,"Recovery Land reclamation":174.6,"Reused":56.3,"Recovery other":null,"Landfill":0.6,"Total":231.5},{"Year":2013,"Recovery Land reclamation":136.6,"Reused":43.5,"Recovery other":null,"Landfill":2.3,"Total":182.3},{"Year":2014,"Recovery Land reclamation":126.5,"Reused":70.6,"Recovery other":null,"Landfill":1.2,"Total":198.3},{"Year":2015,"Recovery Land reclamation":105.4,"Reused":57.9,"Recovery other":null,"Landfill":0.4,"Total":163.8},{"Year":2016,"Recovery Land reclamation":81.3,"Reused":59.2,"Recovery other":null,"Landfill":0.4,"Total":140.9},{"Year":2017,"Recovery Land reclamation":53.8,"Reused":69.6,"Recovery other":null,"Landfill":0.4,"Total":123.7},{"Year":2018,"Recovery Land reclamation":53.8,"Reused":69.6,"Recovery other":null,"Landfill":0.4,"Total":123.7},{"Year":2019,"Recovery Land reclamation":46.3,"Reused":31.7,"Recovery other":30,"Landfill":0.3,"Total":108.4}]'
+--, Stamp = GETDATE()
+--where id = 65

@@ -48,6 +48,16 @@ namespace DataGg.Web.Controllers
         }
 
         [HttpGet]
+        [Route("government-spending/breakdown")]
+        [Route("government-spending/breakdown.json")]
+        public async Task<IEnumerable<Breakdown>> GovernmentSpendingBreakdown()
+        {
+            var dataCache = await _cacheManager.DataCache.Get();
+
+            return dataCache.GovSpendingBreakdown;
+        }
+
+        [HttpGet]
         [Route("buses/usage")]
         [Route("buses/usage.json")]
         public async Task<IEnumerable<BusUsage>> BusesUsage()
@@ -345,7 +355,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("overseas_aid/contributions")]
         [Route("overseas_aid/contributions.json")]
-        public async Task<IEnumerable<Contributions>> OverseasContributions()
+        public async Task<IEnumerable<Contributions>> OverseasAidContributions()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.OverseasContributions;
@@ -504,7 +514,7 @@ namespace DataGg.Web.Controllers
         [HttpGet]
         [Route("waste/commercial-and-industrial")]
         [Route("waste/commercial-and-industrial.json")]
-        public async Task<IEnumerable<CommericalAndIndustrial>> WasteCommercialAndIndustrialWaste()
+        public async Task<IEnumerable<CommericalAndIndustrial>> WasteCommercialAndIndustrial()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.WasteCommercialAndIndustrial;
