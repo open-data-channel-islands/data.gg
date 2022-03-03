@@ -1,0 +1,7 @@
+﻿@model Models.LineChartViewModel
+
+@{
+    var renderer = Model.Build();
+}
+
+@Html.Raw(renderer.RenderHtml())

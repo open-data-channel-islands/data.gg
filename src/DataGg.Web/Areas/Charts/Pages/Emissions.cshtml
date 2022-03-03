@@ -1,0 +1,25 @@
+﻿@page "/Charts/Emissions"
+
+@model DataGg.Web.Areas.Charts.Pages.Emission
+@{
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="sources-tab" data-toggle="tab" href="#sources" role="tab" aria-controls="sources" aria-selected="true">Sources</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="types-tab" data-toggle="tab" href="#types" role="tab" aria-controls="types" aria-selected="false">Types</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="sources" role="tabpanel" aria-labelledby="sources-tab">
+        @await Component.InvokeAsync("EmissionSourcesChart", new { })
+    </div>
+    <div class="tab-pane" id="types" role="tabpanel" aria-labelledby="types-tab">
+        @await Component.InvokeAsync("EmissionTypesChart", new { })
+    </div>
+</div>
