@@ -1,0 +1,32 @@
+﻿@page "/Charts/Energy"
+
+@model DataGg.Web.Areas.Charts.Pages.Energy
+@{
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="consumption-tab" data-toggle="tab" href="#consumption" role="tab" aria-controls="consumption" aria-selected="true">Consumption</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="importedVsGenerated-tab" data-toggle="tab" href="#importedVsGenerated" role="tab" aria-controls="importedVsGenerated" aria-selected="false">Imported vs Generated</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="renewable-tab" data-toggle="tab" href="#renewable" role="tab" aria-controls="renewable" aria-selected="false">Renewable</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="consumption" role="tabpanel" aria-labelledby="consumption-tab">
+        @await Component.InvokeAsync("EnergyConsumptionChart", new { })
+    </div>
+    <div class="tab-pane" id="importedVsGenerated" role="tabpanel" aria-labelledby="importedVsGenerated-tab">
+        @await Component.InvokeAsync("EnergyImportedVsGeneratedChart", new { })
+    </div>
+
+    <div class="tab-pane" id="renewable" role="tabpanel" aria-labelledby="renewable-tab">
+        @await Component.InvokeAsync("EnergyRenewableChart", new { })
+    </div>
+</div>
