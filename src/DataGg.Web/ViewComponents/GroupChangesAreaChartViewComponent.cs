@@ -24,8 +24,8 @@ public class GroupChangesAreaChartViewComponent : ViewComponent
 
         var model = new AreaChartViewModel
         {
-            TitleText = "RPI",
-            YAxisTitleText = "RPI",
+            TitleText = "Cumulative RPI Quarterly",
+            YAxisTitleText = "% Change",
             Id = "chartRPI",
             Data = new List<Series>(),
             Stacking =PlotOptionsAreaStacking.Normal

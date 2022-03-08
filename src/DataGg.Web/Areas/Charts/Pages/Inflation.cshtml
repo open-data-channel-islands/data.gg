@@ -1,5 +1,6 @@
 ﻿@page "/Charts/Inflation"
 @using DataGg.Core.Guernsey.Inflation
+@using Highsoft.Web.Mvc.Charts
 @model DataGg.Web.Areas.Charts.Pages.Inflation
 @{
 }
@@ -19,7 +20,7 @@
     <div class="tab-pane active" id="changes" role="tabpanel" aria-labelledby="changes-tab">
         @await Component.InvokeAsync("GenericAreaChart", new
         {
-            id = "chartChanges", Title = "Changes",
+            id = "chartChanges", Title = "Cumulative RPI Changes Quarterly", YAxisLabel = "% Change",
             Type = typeof(Changes), GroupName = ""
         })
     </div>

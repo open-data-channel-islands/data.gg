@@ -21,7 +21,7 @@
 
         @await Component.InvokeAsync("GenericAreaChart", new
         {
-            id = "chartMeanAvg", Title = "Mean Average",
+            id = "chartMeanAvg", Title = "Mean Average", YAxisLabel = "Mean Average",
             Type = typeof(LocalPrices), GroupName = "Mean"
         })
     </div>
@@ -29,7 +29,7 @@
 
         @await Component.InvokeAsync("GenericAreaChart", new
         {
-            id = "chartTransactions", Title = "Transactions",
+            id = "chartTransactions", Title = "Transactions", YAxisLabel = "Transaction Count",
             Type = typeof(LocalPrices), GroupName = "Transactions"
         })
     </div>

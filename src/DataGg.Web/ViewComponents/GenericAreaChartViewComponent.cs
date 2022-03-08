@@ -19,14 +19,14 @@ public class GenericAreaChartViewComponent : ViewComponent
         _cacheManager = cacheManager;
     }
 
-    public async Task<IViewComponentResult> InvokeAsync(string id, string title, Type type, string groupName = "")
+    public async Task<IViewComponentResult> InvokeAsync(string id, string title, string yAxisLabel, Type type, string groupName = "")
     {
         var dataCache = await _cacheManager.DataCache.Get();
 
         var model = new AreaChartViewModel
         {
             TitleText = title,
-            YAxisTitleText = title,
+            YAxisTitleText = yAxisLabel,
             Id = id,
             Data = new List<Series>()
         };
