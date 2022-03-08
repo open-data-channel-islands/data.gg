@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using DataGg.Core.Attributes;
 using DataGg.Core.Guernsey.Buses;
 using DataGg.Core.Guernsey.Crime;
 using DataGg.Core.Guernsey.Earnings;
@@ -94,6 +97,48 @@ namespace DataGg.Core.Types
         public IEnumerable<FrostDays> WeatherFrostDays { get; set; }
         public IEnumerable<MetOfficeAnnual> WeatherMetOfficeAnnual { get; set; }
         public IEnumerable<MetOfficeMonthly> WeatherMetOfficeMonthly { get; set; }
-    }
 
+        public ChartingData GetChartingDataForType(System.Type type)
+        {
+            var items = GetFromType(type);
+
+            var columns = ChartSeriesColumn.GetColumnsForGeneric(type);
+
+            // only 1 supported at mo
+            var chartSeriesColumns = columns as ChartSeriesColumn[] ?? columns.ToArray();
+            
+            var groupCol = chartSeriesColumns.FirstOrDefault(x => x.UsedForGrouping);
+
+            if (groupCol != null)
+            {
+                items = items.OrderBy(x => groupCol.PropertyInfo.GetValue(x));
+            }
+            
+            return new ChartingData
+            {
+                OrderedItems = items,
+                Columns = chartSeriesColumns.Where(c=> !c.UsedForGrouping).ToArray(),
+                GroupingColumn = groupCol
+            };
+        }
+        public IEnumerable<object> GetFromType(System.Type type)
+        {
+            var propertyInfos = GetType().GetProperties().ToArray();
+            foreach (var p in propertyInfos)
+            {
+                if (p.PropertyType.IsGenericType &&
+                    p.PropertyType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+                {
+                    var elementType = p.PropertyType.GetGenericArguments().FirstOrDefault();
+
+                    if (elementType == type)
+                    {
+                        return (IEnumerable<object>)p.GetValue(this);
+                    }
+                }
+            }
+
+            return null;
+        }
+    }
 }

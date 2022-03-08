@@ -1,0 +1,36 @@
+﻿@page "/Charts/Inflation"
+
+@using Highsoft.Web.Mvc.Charts
+@model DataGg.Web.Areas.Charts.Pages.Inflation
+@{
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="changes-tab" data-toggle="tab" href="#changes" role="tab" aria-controls="changes" aria-selected="true">Changes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="rpi-tab" data-toggle="tab" href="#rpi" role="tab" aria-controls="rpi" aria-selected="false">RPI</a>
+    </li>
+    @*<li class="nav-item">
+        <a class="nav-link" id="rpix-tab" data-toggle="tab" href="#rpix" role="tab" aria-controls="rpix" aria-selected="false">RPIX</a>
+    </li>*@
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="changes" role="tabpanel" aria-labelledby="changes-tab">
+        @await Component.InvokeAsync("GenericAreaChart", new { id = "chartChanges", Title = "Changes", 
+            Type = typeof(DataGg.Core.Guernsey.Inflation.Changes) })
+    </div>
+    
+    <div class="tab-pane" id="rpi" role="tabpanel" aria-labelledby="rpi-tab">
+        @await Component.InvokeAsync("GroupChangesAreaChart", new {  })
+    </div>
+
+    @*<div class="tab-pane" id="rpix" role="tabpanel" aria-labelledby="rpix-tab">
+        @await Component.InvokeAsync("GenericAreaChart", new { id = "chartRpix", Title = "RPIX Group Changes (Q4 2004 is 100)", 
+            Type = typeof(DataGg.Core.Guernsey.Inflation.RpixGroupChanges) })
+    </div>*@
+</div>

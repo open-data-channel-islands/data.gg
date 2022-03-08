@@ -59,4 +59,13 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Shared\Components\HousingMeanAvgChart\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Shared\Components\HousingTransactionsChart\Default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Pages\Shared\Components\GroupChangesAreaChart\Default.cshtml" />
+  </ItemGroup>
+
 </Project>

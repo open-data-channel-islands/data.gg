@@ -20,6 +20,9 @@ namespace DataGg.Core.Guernsey.Inflation
 
         [JsonPropertyName("Annual Change")]
         public double? AnnualChange { get; set; }
+
+        public int ParsedYear => int.Parse(new string(Quarter.TakeLast(4).ToArray()));
+        public string ParsedQtr => new string(Quarter.Take(2).ToArray());
     }
 
 }

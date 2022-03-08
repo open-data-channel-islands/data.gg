@@ -4,14 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using DataGg.Core.Attributes;
 
 namespace DataGg.Core.Guernsey.Inflation
 {
     public class Changes
     {
+        // argh, why doesn't this get converted to a date without mucking about
         [JsonPropertyName("Quarter")]
         public string Quarter { get; set; }
 
+        [ChartSeriesColumn(UsedForGrouping = true, Format = "yyyy MMM")]
+        public DateTime Date => DateTime.Parse(Quarter);
+        
         [JsonPropertyName("RPIX Annual Change")]
         public double? RpixAnnualChange { get; set; }
 
@@ -22,6 +27,7 @@ namespace DataGg.Core.Guernsey.Inflation
         public double? RpiAnnualChange { get; set; }
 
         [JsonPropertyName("RPI Quarterly Change")]
+        [ChartSeriesColumn(DisplayName = "RPI QTR Change", CalcMethod = CalcMethod.PercentChange)]
         public double? RpiQuarterlyChange { get; set; }
     }
 }

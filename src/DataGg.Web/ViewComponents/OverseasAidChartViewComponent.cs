@@ -21,7 +21,11 @@ public class OverseasAidChartViewComponent : ViewComponent
     {
         var dataCache = await _cacheManager.DataCache.Get();
 
-        var model = new StackedAreaChartViewModel() { TitleText = "Overseas Aid", YAxisTitleText = "Overseas Aid", Id = "chartOverseasAid" };
+        var model = new AreaChartViewModel()
+        {
+            TitleText = "Overseas Aid", YAxisTitleText = "Overseas Aid", Id = "chartOverseasAid",
+            Stacking = PlotOptionsAreaStacking.Normal
+        };
         
         var africaAid = new List<AreaSeriesData>();
         var africaEmergency = new List<AreaSeriesData>();

@@ -1,5 +1,6 @@
 ﻿@page "/Charts/Housing"
 
+@using DataGg.Core.Guernsey.Houses
 @model DataGg.Web.Areas.Charts.Pages.Housing
 @{
 }
@@ -17,9 +18,19 @@
 <!-- Tab panes -->
 <div class="tab-content">
     <div class="tab-pane active" id="mean-avg" role="tabpanel" aria-labelledby="mean-avg-tab">
-        @await Component.InvokeAsync("HousingMeanAvgChart", new { })
+
+        @await Component.InvokeAsync("GenericAreaChart", new
+        {
+            id = "chartMeanAvg", Title = "Mean Average",
+            Type = typeof(LocalPrices), GroupName = "Mean"
+        })
     </div>
     <div class="tab-pane" id="transactions" role="tabpanel" aria-labelledby="transactions-tab">
-        @await Component.InvokeAsync("HousingTransactionsChart", new { })
+
+        @await Component.InvokeAsync("GenericAreaChart", new
+        {
+            id = "chartTransactions", Title = "Transactions",
+            Type = typeof(LocalPrices), GroupName = "Transactions"
+        })
     </div>
 </div>
