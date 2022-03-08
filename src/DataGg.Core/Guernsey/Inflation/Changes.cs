@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -15,7 +16,7 @@ namespace DataGg.Core.Guernsey.Inflation
         public string Quarter { get; set; }
 
         [ChartSeriesColumn(UsedForGrouping = true, Format = "yyyy MMM")]
-        public DateTime Date => DateTime.Parse(Quarter);
+        public DateTime Date => DateTime.ParseExact(Quarter, "dd/MM/yyyy",  CultureInfo.InvariantCulture);
         
         [JsonPropertyName("RPIX Annual Change")]
         public double? RpixAnnualChange { get; set; }
