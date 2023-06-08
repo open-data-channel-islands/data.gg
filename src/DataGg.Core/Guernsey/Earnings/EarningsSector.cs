@@ -1,27 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.Earnings
+namespace DataGg.Core.Guernsey.Earnings;
+
+public class EarningsSector
 {
-    public class EarningsSector
-    {
-        [JsonPropertyName("Sector")]
-        public string Sector { get; set; }
+    [JsonPropertyName("Date")] public string Date { get; set; }
 
-        [JsonPropertyName("Year")]
-        public long Year { get; set; }
+    [JsonPropertyName("Agriculture, Horticulture, Fishing and Quarrying")]
+    public long AgricultureHorticultureFishingAndQuarrying { get; set; }
 
-        [JsonPropertyName("Lower quartile earnings")]
-        public long LowerQuartileEarnings { get; set; }
+    [JsonPropertyName("Manufacturing")] public long Manufacturing { get; set; }
 
-        [JsonPropertyName("Median earnings")]
-        public long MedianEarnings { get; set; }
+    [JsonPropertyName("Electricity, gas, steam and air conditioning supply")]
+    public long ElectricityGasSteamAndAirConditioningSupply { get; set; }
 
-        [JsonPropertyName("Upper quartile earnings")]
-        public long UpperQuartileEarnings { get; set; }
-    }
+    [JsonPropertyName("Water supply, sewerage, waste management and remediation activities")]
+    public long WaterSupplySewerageWasteManagementAndRemediationActivities { get; set; }
+
+    [JsonPropertyName("Construction")] public long Construction { get; set; }
+
+    [JsonPropertyName("Wholesale, retail and repairs")]
+    public long WholesaleRetailAndRepairs { get; set; }
+
+    [JsonPropertyName("Hostelry")] public long Hostelry { get; set; }
+
+    [JsonPropertyName("Transport and storage")]
+    public long TransportAndStorage { get; set; }
+
+    [JsonPropertyName("Information and communication")]
+    public long InformationAndCommunication { get; set; }
+
+    [JsonPropertyName("Finance")] public long Finance { get; set; }
+
+    [JsonPropertyName("Real estate activities")]
+    public long RealEstateActivities { get; set; }
+
+    [JsonPropertyName("Professional, business, scientific and technical activities")]
+    public long ProfessionalBusinessScientificAndTechnicalActivities { get; set; }
+
+    [JsonPropertyName("Administrative and support service activities")]
+    public long AdministrativeAndSupportServiceActivities { get; set; }
+
+    [JsonPropertyName("Public administration")]
+    public long PublicAdministration { get; set; }
+
+    [JsonPropertyName("Education")] public long Education { get; set; }
+
+    [JsonPropertyName("Human health, social and charitable work activities")]
+    public long HumanHealthSocialAndCharitableWorkActivities { get; set; }
+
+    [JsonPropertyName("Arts, entertainment and recreation")]
+    public long ArtsEntertainmentAndRecreation { get; set; }
+
+    [JsonPropertyName("Other service activities")]
+    public long OtherServiceActivities { get; set; }
+
+    [JsonPropertyName("Activities of households as employers")]
+    public long ActivitiesOfHouseholdsAsEmployers { get; set; }
 }

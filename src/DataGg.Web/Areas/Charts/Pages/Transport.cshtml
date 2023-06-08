@@ -1,0 +1,23 @@
+﻿@page "/Charts/Transport"
+
+@{
+    ViewData["Title"] = "Transport";
+}
+
+
+@model DataGg.Web.Areas.Charts.Pages.TransportModel
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="registered-vehicles-tab" data-toggle="tab" href="#registered-vehicles" role="tab" aria-controls="registered-vehicles" aria-selected="true">Registered Vehicles</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="registered-vehicles" role="tabpanel" aria-labelledby="registered-vehicles-tab">
+        @await Component.InvokeAsync("TransportRegisteredVehiclesChart", new { })
+    </div>
+</div>

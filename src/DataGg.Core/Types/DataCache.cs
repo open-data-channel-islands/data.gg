@@ -35,8 +35,8 @@ namespace DataGg.Core.Types
         public IEnumerable<PrisonPopulation> CrimePrisonPopulation { get; set; }
         public IEnumerable<Worried> CrimeWorried { get; set; }
         public IEnumerable<EarningsAgeGroup> EarningsAgeGroup { get; set; }
-        public IEnumerable<EarningsSector> EducationEarningsSector { get; set; }
-        public IEnumerable<EarningsSex> EducationEarningsSex { get; set; }
+        public IEnumerable<EarningsSector> EarningsSector { get; set; }
+        public IEnumerable<EarningsSex> EarningsSex { get; set; }
         public IEnumerable<GcseOverall> EducationGcseOverall { get; set; }
         public IEnumerable<GcseSchool> EducationGcseSchool { get; set; }
         public IEnumerable<Post16Results> EducationPost16Results { get; set; }

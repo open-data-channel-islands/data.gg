@@ -9,16 +9,16 @@ namespace DataGg.Core.Guernsey.Earnings
 {
     public class EarningsSex
     {
-        [JsonPropertyName("Year")]
-        public long Year { get; set; }
+        [JsonPropertyName("Date")]
+        public string Date { get; set; }
 
-        [JsonPropertyName("Sex")]
-        public string Sex { get; set; }
+        [JsonPropertyName("Female")]
+        public long Female { get; set; }
 
-        [JsonPropertyName("Nominal median earnings")]
-        public long NominalMedianEarnings { get; set; }
+        [JsonPropertyName("Male")]
+        public long Male { get; set; }
 
-        [JsonPropertyName("Real median earnings")]
-        public long RealMedianEarnings { get; set; }
+        [JsonPropertyName("Total")]
+        public long Total { get; set; }
     }
 }

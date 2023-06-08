@@ -1,0 +1,24 @@
+﻿@page "/Charts/FireAndRescue"
+
+@{
+    ViewData["Title"] = "Fire and Rescue";
+}
+
+
+@model DataGg.Web.Areas.Charts.Pages.FireAndRescueModel
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="attendances-tab" data-toggle="tab" 
+           href="#attendances" role="tab" aria-controls="attendances" aria-selected="true">Attendances</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="attendances" role="tabpanel" aria-labelledby="attendances-tab">
+        @await Component.InvokeAsync("FireAndRescueAttendancesChart", new { })
+    </div>
+</div>

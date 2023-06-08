@@ -1,0 +1,23 @@
+﻿@page "/Charts/Earnings"
+
+@{
+    ViewData["Title"] = "Earnings";
+}
+
+
+@model DataGg.Web.Areas.Charts.Pages.EarningsModel
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="sex-tab" data-toggle="tab" href="#sex" role="tab" aria-controls="sex" aria-selected="true">Sex</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="sex" role="tabpanel" aria-labelledby="sex-tab">
+        @await Component.InvokeAsync("EarningsSexChart", new { })
+    </div>
+</div>

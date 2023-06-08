@@ -14,6 +14,9 @@ namespace DataGg.Core.Guernsey.Waste
 
         [JsonPropertyName("Landfill")]
         public double Landfill { get; set; }
+        
+        [JsonPropertyName("Recovery")]
+        public double? Recovery { get; set; }
 
         [JsonPropertyName("Recycled")]
         public double Recycled { get; set; }

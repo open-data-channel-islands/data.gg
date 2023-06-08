@@ -1,7 +1,10 @@
 ﻿@page "/Charts/Buses"
-@model DataGg.Web.Areas.Charts.Pages.BusesModel
 @{
+    ViewData["Title"] = "Buses";
 }
+
+
+@model DataGg.Web.Areas.Charts.Pages.BusesModel
 
 
 @await Component.InvokeAsync("BusUsageChart", new { })

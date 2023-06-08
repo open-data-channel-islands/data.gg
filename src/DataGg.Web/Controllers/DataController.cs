@@ -109,7 +109,7 @@ namespace DataGg.Web.Controllers
         public async Task<IEnumerable<EarningsSector>> EarningsEarningsSector()
         {
             var dataCache = await _cacheManager.DataCache.Get();
-            return dataCache.EducationEarningsSector;
+            return dataCache.EarningsSector;
         }
 
         [HttpGet]
@@ -118,7 +118,7 @@ namespace DataGg.Web.Controllers
         public async Task<IEnumerable<EarningsSex>> EarningsEarningsSex()
         {
             var dataCache = await _cacheManager.DataCache.Get();
-            return dataCache.EducationEarningsSex;
+            return dataCache.EarningsSex;
         }
         [HttpGet]
         [Route("education/gcse_overall")]

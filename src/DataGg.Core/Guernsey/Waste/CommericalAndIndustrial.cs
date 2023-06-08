@@ -21,7 +21,7 @@ namespace DataGg.Core.Guernsey.Waste
         [JsonPropertyName("Composted")]
         public double Composted { get; set; }
 
-        [JsonPropertyName("Misc. disposal")]
+        [JsonPropertyName("Misc. disposal*")]
         public double MiscDisposal { get; set; }
 
         [JsonPropertyName("Total")]
