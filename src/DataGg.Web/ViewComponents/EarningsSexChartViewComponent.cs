@@ -40,7 +40,8 @@ namespace DataGg.Web.ViewComponents
             
             model.Labels = new List<string>();
 
-            foreach (var qtr in dataCache.EarningsSex.OrderBy(y => DateTime.Parse(y.Date)))
+            var culture = CultureInfo.GetCultureInfo("en-GB");
+            foreach (var qtr in dataCache.EarningsSex.OrderBy(y => DateTime.Parse(y.Date, culture)))
             {
                 maleSet.Add(new LineSeriesData { Y = qtr.Male });
                 femaleSet.Add(new LineSeriesData { Y = qtr.Female });

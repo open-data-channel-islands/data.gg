@@ -43,7 +43,8 @@ namespace DataGg.Web.ViewComponents
             
             model.Labels = new List<string>();
 
-            foreach (var qtr in dataCache.EmploymentTotals.OrderBy(y => DateTime.Parse(y.DateTaken)))
+            var culture = CultureInfo.GetCultureInfo("en-GB");
+            foreach (var qtr in dataCache.EmploymentTotals.OrderBy(y => DateTime.Parse(y.DateTaken, culture)))
             {
                 employedSet.Add(new LineSeriesData { Y = qtr.TotalInEmployment });
                 selfEmployedSet.Add(new LineSeriesData { Y = qtr.TotalSelfEmployees });
