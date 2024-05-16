@@ -1,22 +1,15 @@
 using DataGg.Database;
-using DataGg.Web.Converters;
 using DataGg.Web.Data;
 using DataGg.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DataGg.Web
 {
@@ -61,7 +54,7 @@ namespace DataGg.Web
             //TODO: Revist. Not working for some reason?? maybe .net 5 issue?
             services.AddWebOptimizer(pipeline =>
            {
-               pipeline.AddCssBundle("/css/bundle.css", new string[] { "wwwroot/css/*.css" }).UseContentRoot();
+               pipeline.AddCssBundle("/css/bundle.css", ["wwwroot/css/*.css"]).UseContentRoot();
            });
 
             // sensible use of http client
