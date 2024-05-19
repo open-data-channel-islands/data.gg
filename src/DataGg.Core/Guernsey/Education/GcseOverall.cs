@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.Education
+namespace DataGg.Core.Guernsey.Education;
+
+public class GcseOverall
 {
-    public class GcseOverall
-    {
-        [JsonPropertyName("Year")]
-        public long Year { get; set; }
+    [JsonPropertyName("Year")]
+    public long Year { get; set; }
 
-        [JsonPropertyName("Result")]
-        public string Result { get; set; }
+    [JsonPropertyName("Result")]
+    public string Result { get; set; }
 
-        [JsonPropertyName("Percent")]
-        public double Percent { get; set; }
-    }
+    [JsonPropertyName("Percent")]
+    public double Percent { get; set; }
 }

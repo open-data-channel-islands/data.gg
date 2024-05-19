@@ -21,24 +21,26 @@
     </div>
 </div>
 
-<div class="jumbotron orange">
-    <div class="container">
-        <h2>
-            <strong>Updates</strong>
-        </h2>
-        <p>
-            <strong>2023-06-08:</strong> Updated Employment, Earnings, Waste, Transport,
-            Emissions, Fire and Rescue - <strong>Jason</strong>
-        </p>
-
-        <p>
-            <strong>2023-06-05:</strong> Hey. I have binned the data.gg Twitter account due to obvious reasons,
-            so will build out this block to "announce" updates, etc.
-            Today I have updated the Bus Usage data to April 2023 - <strong>Jason</strong>
-        </p>
-
+@if (Model.LastUpdated is not null && Model.LastUpdated.Length > 0)
+{
+    
+    <div class="jumbotron orange">
+        <div class="container">
+            <h2>
+                <strong>Latest Data Updates</strong>
+            </h2>
+            
+            <ul>
+                @foreach (var item in Model.LastUpdated)
+                {
+                    <li>@item.CurrentDataJson.Stamp.ToString("dd/MM/yy") - @item.Name</li>
+                }
+            </ul>
+        
+        </div>
     </div>
-</div>
+}
+
 
 <div class="front-page-feature-triangles">
     <div class="container">
@@ -63,7 +65,7 @@
                 <h2>
                     <strong>Guernsey Sailings</strong>
                 </h2>
-                <p>Monitor Guernsey Harbours arrivals and departures. Available on <a href="https://play.google.com/store/apps/details?id=reformosft.guernseysailings&hl=en_GB">Google Play</a> and the <a href="http://www.amazon.co.uk/dp/B00L9EQEG0">Amazon App Store</a> for Android.</p>
+                <p>Monitor Guernsey Harbours arrivals and departures. Available on the <a href="http://www.amazon.co.uk/dp/B00L9EQEG0">Amazon App Store</a> for Android.</p>
             </div>
 
         </div>
@@ -110,7 +112,7 @@
                 <h2>
                     <strong>Guernsey Flights</strong>
                 </h2>
-                <p>Monitor Guernsey Airports arrivals and departures. Available on <a href="https://play.google.com/store/apps/details?id=com.reformsoft.guernseyflights.app">Google Play</a> and the <a href="http://www.amazon.co.uk/dp/B00KRM9FIE">Amazon App Store</a> for Android and <a href="https://itunes.apple.com/us/app/gsy-flights/id899069140?ls=1&mt=8">iTunes</a> for iOS.</p>
+                <p>Monitor Guernsey Airports arrivals and departures. Available on the <a href="http://www.amazon.co.uk/dp/B00KRM9FIE">Amazon App Store</a> for Android.</p>
             </div>
 
         </div>

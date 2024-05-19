@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.Inflation
+namespace DataGg.Core.Guernsey.Inflation;
+
+public class RpixGroupChanges
 {
-    public class RpixGroupChanges
-    {
-        [JsonPropertyName("Type")]
-        public string Type { get; set; }
+    [JsonPropertyName("Type")]
+    public string Type { get; set; }
 
-        [JsonPropertyName("Quarter")]
-        public string Quarter { get; set; }
+    [JsonPropertyName("Quarter")]
+    public string Quarter { get; set; }
 
-        [JsonPropertyName("Quarterly Change")]
-        public double? QuarterlyChange { get; set; }
+    [JsonPropertyName("Quarterly Change")]
+    public double? QuarterlyChange { get; set; }
 
-        [JsonPropertyName("Annual Change")]
-        public double? AnnualChange { get; set; }
-    }
+    [JsonPropertyName("Annual Change")]
+    public double? AnnualChange { get; set; }
 }

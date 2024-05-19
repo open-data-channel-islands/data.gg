@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.Water
+namespace DataGg.Core.Guernsey.Water;
+
+public class WaterConsumption
 {
-    public class WaterConsumption
-    {
-        [JsonPropertyName("Year")]
-        public long Year { get; set; }
+    [JsonPropertyName("Year")]
+    public long Year { get; set; }
 
-        [JsonPropertyName("Metered")]
-        public long Metered { get; set; }
+    [JsonPropertyName("Metered")]
+    public long Metered { get; set; }
 
-        [JsonPropertyName("Unmetered")]
-        public long Unmetered { get; set; }
+    [JsonPropertyName("Unmetered")]
+    public long Unmetered { get; set; }
 
-        [JsonPropertyName("Commercial")]
-        public long Commercial { get; set; }
+    [JsonPropertyName("Commercial")]
+    public long Commercial { get; set; }
 
-        [JsonPropertyName("Other")]
-        public long Other { get; set; }
+    [JsonPropertyName("Other")]
+    public long Other { get; set; }
 
-        [JsonPropertyName("Total")]
-        public long Total { get; set; }
-    }
+    [JsonPropertyName("Total")]
+    public long Total { get; set; }
 }

@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.Traffic
+namespace DataGg.Core.Guernsey.Traffic;
+
+public class TrafficInjuries
 {
-    public class TrafficInjuries
-    {
-        [JsonPropertyName("Year")]
-        public long Year { get; set; }
+    [JsonPropertyName("Year")]
+    public long Year { get; set; }
 
-        [JsonPropertyName("Type")]
-        public string Type { get; set; }
+    [JsonPropertyName("Type")]
+    public string Type { get; set; }
 
-        [JsonPropertyName("Fatal")]
-        public long Fatal { get; set; }
+    [JsonPropertyName("Fatal")]
+    public long Fatal { get; set; }
 
-        [JsonPropertyName("Serious")]
-        public long Serious { get; set; }
-    }
+    [JsonPropertyName("Serious")]
+    public long Serious { get; set; }
 }

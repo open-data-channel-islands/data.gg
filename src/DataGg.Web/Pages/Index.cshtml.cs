@@ -1,19 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+﻿using DataGg.Core.Types;
+using DataGg.Web.Services;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DataGg.Web.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly CacheManager _cacheManager;
+    public DataSetDto[] LastUpdated { get; set; } = [];
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(CacheManager cacheManager)
     {
-        _logger = logger;
+        _cacheManager = cacheManager;
     }
 
-    public void OnGet()
+    public async Task OnGetAsync()
     {
-
+        if (_cacheManager.DataCategories.IsCached)
+        {
+            LastUpdated = (await _cacheManager.DataCategories.Get())
+                .SelectMany(dc => dc.DataSets)
+                .Where(dc => dc.CurrentDataJson is not null)
+                .OrderByDescending(ds => ds.CurrentDataJson.Stamp)
+                .Take(10)
+                .ToArray();
+        }
     }
 }

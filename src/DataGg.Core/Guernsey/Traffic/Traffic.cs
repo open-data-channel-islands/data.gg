@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
-namespace DataGg.Core.Guernsey.Traffic
+namespace DataGg.Core.Guernsey.Traffic;
+
+public class Traffic
 {
-    public class Traffic
-    {
-        [JsonPropertyName("Offence")]
-        public string Offence { get; set; }
+    [JsonPropertyName("Offence")]
+    public string Offence { get; set; }
 
-        [JsonPropertyName("Year")]
-        public long Year { get; set; }
+    [JsonPropertyName("Year")]
+    public long Year { get; set; }
 
-        [JsonPropertyName("Count")]
-        public long? Count { get; set; }
-    }
+    [JsonPropertyName("Count")]
+    public long? Count { get; set; }
 }

@@ -21,9 +21,9 @@ namespace DataGg.Web.Services
 
         public bool CacheRebuildRequested { get; private set; } = false;
 
-        public CachableThing<DataCategoryDto[]> DataCategories { get; set; }
-        public CachableThing<DataCache> DataCache { get; set; }
-        private CachableThing<LiveDataCache> LiveDataCache { get; set; }
+        public CachableThing<DataCategoryDto[]> DataCategories { get; init; }
+        public CachableThing<DataCache> DataCache { get; init; }
+        private CachableThing<LiveDataCache> LiveDataCache { get; init; }
 
      
         public CacheManager(IMemoryCache cache, ILogger<CacheManager> logger, RootDb rootDb, GuernseyDb guernseyDb)
