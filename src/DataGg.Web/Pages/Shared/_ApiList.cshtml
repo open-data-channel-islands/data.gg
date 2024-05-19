@@ -2,7 +2,7 @@
 @inject CacheManager CacheManager
 @{
     var dataCategories = CacheManager.DataCategories.IsCached ?
-        (await CacheManager.DataCategories.Get()) :
+        await CacheManager.DataCategories.Get() :
         null;
 }
 

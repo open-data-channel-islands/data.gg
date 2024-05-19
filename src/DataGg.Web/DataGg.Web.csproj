@@ -66,6 +66,7 @@
 
   <ItemGroup>
     <AdditionalFiles Include="Pages\Shared\Components\GroupChangesAreaChart\Default.cshtml" />
+    <AdditionalFiles Include="Pages\Shared\Components\TourismAirVsSeaChart\Default.cshtml" />
   </ItemGroup>
 
 </Project>

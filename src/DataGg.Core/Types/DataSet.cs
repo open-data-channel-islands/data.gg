@@ -16,6 +16,7 @@ namespace DataGg.Core.Types
         public string Stub { get; set; }
         public bool Live { get; set; }
         public string Source { get; set; }
+        public DateTime? Stale { get; set; }
     }
 
     public class DataSetDto : DataSet

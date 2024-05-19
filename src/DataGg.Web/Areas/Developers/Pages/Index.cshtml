@@ -8,37 +8,51 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th scope="col">API</th>
-                <th scope="col">Version</th>
-                <th scope="col">Description</th>
-                <th scope="col">Updated</th>
-                <th scope="col"></th>
-            </tr>
+        <tr>
+            <th scope="col">API</th>
+            <th scope="col">Version</th>
+            <th scope="col">Description</th>
+            <th scope="col">Updated</th>
+            <th scope="col"></th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var ds in Model.DataCategory.DataSets)
-            {
-                <tr>
-                    <td>@ds.Name</td>
-                    <td>1.0</td>
-                    <td>@ds.Desc</td>
-                    <td>
+        @foreach (var ds in Model.DataCategory.DataSets)
+        {
+            <tr>
+                <td>@ds.Name</td>
+                <td>1.0</td>
+                <td>@ds.Desc</td>
+                <td>
+                    @if (ds.Stale.HasValue)
+                    {
+                        <span>Stale: @ds.Stale.Value.ToString("ddd dd MMM yy")</span>
+                        <br /><span>Can't find updates</span>
+                    }
+                    else
+                    {
                         @if (ds.Live)
                         {
-                            <h4> <span class="badge badge-info">LIVE!</span></h4>
+                            <h4>
+                                <span class="badge badge-info">LIVE!</span>
+                            </h4>
                         }
                         else
                         {
                             <span>@ds.CurrentDataJson.Stamp.ToString("ddd dd MMM yy")</span>
                         }
-                    </td>
-                    <td>
-                        <h4><a href="/Developers/@Model.DataCategory.Stub/@ds.Stub/View" class="badge badge-primary">View</a></h4>
-                        <h4><a href="@Url.Action($"{Model.DataCategory.Stub}{ds.Stub}", "Data")" class="badge badge-primary">Json</a></h4>
-                    </td>
-                </tr>
-            }
+                    }
+                </td>
+                <td>
+                    <h4>
+                        <a href="/Developers/@Model.DataCategory.Stub/@ds.Stub/View" class="badge badge-primary">View</a>
+                    </h4>
+                    <h4>
+                        <a href="@Url.Action($"{Model.DataCategory.Stub}{ds.Stub}", "Data")" class="badge badge-primary">Json</a>
+                    </h4>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
 </div>
@@ -46,4 +60,3 @@
 {
     <p>Source: <a href="@source">@source</a></p>
 }
-

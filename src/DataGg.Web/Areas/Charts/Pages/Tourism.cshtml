@@ -1,0 +1,22 @@
+﻿@page "/Charts/Tourism"
+
+@model DataGg.Web.Areas.Charts.Pages.Tourism
+@{
+    ViewData["Title"] = "Tourism";
+}
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="airVsSea-tab" data-toggle="tab" href="#airVsSea" role="tab" aria-controls="airVsSea" aria-selected="true">Air vs Sea</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="airVsSea" role="tabpanel" aria-labelledby="airVsSea-tab">
+        @await Component.InvokeAsync("TourismAirVsSeaChart", new { })
+    </div>
+
+</div>

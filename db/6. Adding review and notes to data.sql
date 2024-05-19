@@ -1,0 +1,3 @@
+ALTER TABLE dbo.DataSet ADD Stale DATETIME NULL
+GO
+

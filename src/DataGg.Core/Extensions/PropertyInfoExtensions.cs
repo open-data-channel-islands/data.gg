@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace DataGg.Core.Extensions;
 
