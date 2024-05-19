@@ -6,8 +6,8 @@ namespace DataGg.Core.Types;
 
 public class ChartingData
 {
-    public IEnumerable<object> OrderedItems { get; set; }
-    public ChartSeriesColumn[] Columns { get; set; }
+    public IEnumerable<object> OrderedItems { get; init; }
+    public ChartSeriesColumn[] Columns { get; init; }
 
     public ChartSeriesColumn[] ColumnsFiltered(string groupName)
     {
@@ -15,5 +15,5 @@ public class ChartingData
             .Where(x => x.GroupName == groupName || string.IsNullOrEmpty(groupName))
             .ToArray();
     }
-    public ChartSeriesColumn GroupingColumn { get; set; }
+    public ChartSeriesColumn GroupingColumn { get; init; }
 }

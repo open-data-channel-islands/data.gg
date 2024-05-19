@@ -41,7 +41,7 @@ namespace DataGg.Core.Live
 
         }
 
-        public async Task<string> GetString(string url)
+        private async Task<string> GetString(string url)
         {
             //_client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -49,7 +49,7 @@ namespace DataGg.Core.Live
 
             if (!response.IsSuccessStatusCode)
             {
-                Log.Error($"Harhbour Scrape httpStatus[{(int)response.StatusCode}] {response.StatusCode} for {url} was not a successful one. Aborting scrape.");
+                Log.Error($"Harbour Scrape httpStatus[{(int)response.StatusCode}] {response.StatusCode} for {url} was not a successful one. Aborting scrape.");
                 return null;
             }
 

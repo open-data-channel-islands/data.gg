@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,8 +7,8 @@ namespace DataGg.Web.Services
 {
     public class CacheBackgroundService : BackgroundService
     {
-        protected readonly CacheManager CacheManager;
-        protected int RefreshHours = 0;
+        private readonly CacheManager _cacheManager;
+        private int RefreshHours = 0;
         private bool _hasDoneFirstCache = false;
 
         // default to past 
@@ -18,7 +16,7 @@ namespace DataGg.Web.Services
 
         public CacheBackgroundService(CacheManager cacheManager)
         {
-            CacheManager = cacheManager;
+            _cacheManager = cacheManager;
  
         }
 
@@ -31,7 +29,7 @@ namespace DataGg.Web.Services
                 {
                     await CacheAll();
                 }
-                else if (CacheManager.CacheRebuildRequested)
+                else if (_cacheManager.CacheRebuildRequested)
                 {
                     await CacheAll();
                 }
@@ -39,7 +37,7 @@ namespace DataGg.Web.Services
                 await Task.Delay(TimeSpan.FromHours(1), stoppingToken);
             }
 
-            CacheManager.ExecuteAsyncStopped();
+            _cacheManager.ExecuteAsyncStopped();
         }
 
         private bool ShouldStartTask()
@@ -63,7 +61,7 @@ namespace DataGg.Web.Services
 
         private async Task CacheAll()
         {
-            await CacheManager.DoCache();
+            await _cacheManager.DoCache();
             _hasDoneFirstCache = true;
         }
     }

@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DataGg.Core.Types;
 
-namespace DataGg.Core.Types
+public class DataCategory
 {
-    public class DataCategory
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public string Desc { get; set; }
-        public string Stub { get; set; }
-        public bool ComingSoon { get; set; }
-        public bool ShowOnSite { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Image { get; set; }
+    public string Desc { get; set; }
+    public string Stub { get; set; }
+    public bool ComingSoon { get; set; }
+    public bool ShowOnSite { get; set; }
+}
 
-    public class DataCategoryDto : DataCategory {
+public class DataCategoryDto : DataCategory {
 
-        public DataSetDto[] DataSets { get; set; }
-    }
-
+    public DataSetDto[] DataSets { get; set; }
 }

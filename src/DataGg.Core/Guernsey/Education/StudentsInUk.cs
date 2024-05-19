@@ -16,9 +16,12 @@ namespace DataGg.Core.Guernsey.Education
         public long OtherHigherEducation { get; set; }
 
         [JsonPropertyName("Undergraduate")]
-        public long Undergraduate { get; set; }
+        public long? Undergraduate { get; set; }
 
         [JsonPropertyName("Postgraduate")]
-        public long Postgraduate { get; set; }
+        public long? Postgraduate { get; set; }
+        
+        [JsonPropertyName("Total")]
+        public long? Total { get; set; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using DataGg.Core.Attributes;
 using DataGg.Core.Guernsey.Buses;
 using DataGg.Core.Guernsey.Crime;
@@ -30,73 +29,74 @@ namespace DataGg.Core.Types
 
     public class DataCache
     {
-        public IEnumerable<BusUsage> BusUsage { get; set; }
-        public IEnumerable<Crime> Crime { get; set; }
-        public IEnumerable<PrisonPopulation> CrimePrisonPopulation { get; set; }
-        public IEnumerable<Worried> CrimeWorried { get; set; }
-        public IEnumerable<EarningsAgeGroup> EarningsAgeGroup { get; set; }
-        public IEnumerable<EarningsSector> EarningsSector { get; set; }
-        public IEnumerable<EarningsSex> EarningsSex { get; set; }
-        public IEnumerable<GcseOverall> EducationGcseOverall { get; set; }
-        public IEnumerable<GcseSchool> EducationGcseSchool { get; set; }
-        public IEnumerable<Post16Results> EducationPost16Results { get; set; }
-        public IEnumerable<StudentsInUk> EducationStudentsInUk { get; set; }
-        public IEnumerable<Source> EmissionSource { get; set; }
-        public IEnumerable<Type> EmissionType { get; set; }
-        public IEnumerable<Sector> EmploymentSector { get; set; }
-        public IEnumerable<Totals> EmploymentTotals { get; set; }
-        public IEnumerable<Consumption> EnergyElectricityConsumption { get; set; }
-        public IEnumerable<ImportedVsGenerated> EnergyElectricityImportVsGenerated { get; set; }
-        public IEnumerable<Gas> EnergyGas { get; set; }
-        public IEnumerable<OilImports> EnergyOilImports { get; set; }
-        public IEnumerable<Renewable> EnergyRenewable { get; set; }
-        public IEnumerable<Banking> FinanceBanking { get; set; }
-        public IEnumerable<FundsUnderManagement> FinanceFundsUnderManagement { get; set; }
-        public IEnumerable<Attendances> FireAndRescueAttendances { get; set; }
-        public IEnumerable<Breakdown> GovSpendingBreakdown { get; set; }
-        public IEnumerable<ChestAndHeartConcerns> HealthChestAndHeartConcerns { get; set; }
-        public IEnumerable<ChestAndHeartTotals> HealthChestAndHeartTotals { get; set; }
-        public IEnumerable<MedUnitBedDaysFiveYrAvg> HealthMedUnitBedDaysFiveYrAvg { get; set; }
-        public IEnumerable<Bedroom> HouseBedrooms { get; set; }
-        public IEnumerable<LocalPrices> HouseLocalPrices { get; set; }
-        public IEnumerable<OpenPrices> HouseOpenPrices { get; set; }
-        public IEnumerable<Guernsey.Houses.Types> HouseTypes { get; set; }
-        public IEnumerable<Units> HouseUnits { get; set; }
-        public IEnumerable<Guernsey.Inflation.Changes> InflationChanges { get; set; }
-        public IEnumerable<RpixGroupChanges> InflationRpixGroupChanges { get; set; }
-        public IEnumerable<RpiGroupChanges> InflationRpiGroupChanges { get; set; }
-        public IEnumerable<Contributions> OverseasContributions { get; set; }
-        public IEnumerable<Age> PopulationAge { get; set; }
-        public IEnumerable<AgeFemale> PopulationAgeFemale { get; set; }
-        public IEnumerable<AgeMale> PopulationAgeMale { get; set; }
-        public IEnumerable<Birthplace> PopulationBirthplace { get; set; }
-        public IEnumerable<Guernsey.Population.Changes> PopulationChanges { get; set; }
-        public IEnumerable<District> PopulationDistrict { get; set; }
-        public IEnumerable<Parish> PopulationParish { get; set; }
-        public IEnumerable<Population> Population { get; set; }
-        public IEnumerable<CondorPunctuality> SailingsCondorPunctuality { get; set; }
-        public IEnumerable<Guernsey.Sailings.Cruises> SailingsCruises { get; set; }
-        public IEnumerable<AirByMonth> TourismAirByMonth { get; set; }
-        public IEnumerable<Guernsey.Tourism.Cruises> TourismCruises { get; set; }
-        public IEnumerable<SeaByMonth> TourismSeaByMonth { get; set; }
-        public IEnumerable<Traffic> Traffic { get; set; }
-        public IEnumerable<TrafficClassifications> TrafficClassifications { get; set; }
-        public IEnumerable<TrafficCollisions> TrafficCollisions { get; set; }
-        public IEnumerable<TrafficInjuries> TrafficInjuries { get; set; }
-        public IEnumerable<RegisteredVehicles> TransportRegisteredVehicles { get; set; }
-        public IEnumerable<CommericalAndIndustrial> WasteCommercialAndIndustrial { get; set; }
-        public IEnumerable<ConstructionAndDemolition> WasteConstructionAndDemolition { get; set; }
-        public IEnumerable<Household> WasteHousehold { get; set; }
-        public IEnumerable<DomesticConsumption> WaterDomesticConsumption { get; set; }
-        public IEnumerable<NitrateConcentration> WaterNitrateConcentration { get; set; }
-        public IEnumerable<PollutionIncidents> WaterPollutionIncidents { get; set; }
-        public IEnumerable<UnaccountedWater> WaterUnaccounted { get; set; }
-        public IEnumerable<WaterConsumption> WaterConsumption { get; set; }
-        public IEnumerable<WaterQualityCompliance> WaterQualityCompliance { get; set; }
-        public IEnumerable<WaterStorage> WaterStorage { get; set; }
-        public IEnumerable<FrostDays> WeatherFrostDays { get; set; }
-        public IEnumerable<MetOfficeAnnual> WeatherMetOfficeAnnual { get; set; }
-        public IEnumerable<MetOfficeMonthly> WeatherMetOfficeMonthly { get; set; }
+        public IEnumerable<BusUsage> BusUsage { get; init; }
+        public IEnumerable<Crime> Crime { get; init; }
+        public IEnumerable<PrisonPopulation> CrimePrisonPopulation { get; init; }
+        public IEnumerable<Worried> CrimeWorried { get; init; }
+        public IEnumerable<EarningsAgeGroup> EarningsAgeGroup { get; init; }
+        public IEnumerable<EarningsSector> EarningsSector { get; init; }
+        public IEnumerable<EarningsSex> EarningsSex { get; init; }
+        public IEnumerable<GcseOverall> EducationGcseOverall { get; init; }
+        public IEnumerable<GcseSchool> EducationGcseSchool { get; init; }
+        public IEnumerable<Post16Results> EducationPost16Results { get; init; }
+        public IEnumerable<StudentsInUk> EducationStudentsInUk { get; init; }
+        public IEnumerable<Source> EmissionSource { get; init; }
+        public IEnumerable<Type> EmissionType { get; init; }
+        public IEnumerable<Sector> EmploymentSector { get; init; }
+        public IEnumerable<Totals> EmploymentTotals { get; init; }
+        public IEnumerable<Consumption> EnergyElectricityConsumption { get; init; }
+        public IEnumerable<ImportedVsGenerated> EnergyElectricityImportVsGenerated { get; init; }
+        public IEnumerable<Gas> EnergyGas { get; init; }
+        public IEnumerable<OilImports> EnergyOilImports { get; init; }
+        public IEnumerable<Renewable> EnergyRenewable { get; init; }
+        public IEnumerable<Banking> FinanceBanking { get; init; }
+        public IEnumerable<FundsUnderManagement> FinanceFundsUnderManagement { get; init; }
+        public IEnumerable<Attendances> FireAndRescueAttendances { get; init; }
+        public IEnumerable<Breakdown> GovSpendingBreakdown { get; init; }
+        public IEnumerable<ChestAndHeartConcerns> HealthChestAndHeartConcerns { get; init; }
+        public IEnumerable<ChestAndHeartTotals> HealthChestAndHeartTotals { get; init; }
+        public IEnumerable<MedUnitBedDaysFiveYrAvg> HealthMedUnitBedDaysFiveYrAvg { get; init; }
+        public IEnumerable<MedicalUnitBedDays> HealthMedicalUnitBedDays { get; init; }
+        public IEnumerable<Bedroom> HouseBedrooms { get; init; }
+        public IEnumerable<LocalPrices> HouseLocalPrices { get; init; }
+        public IEnumerable<OpenPrices> HouseOpenPrices { get; init; }
+        public IEnumerable<Guernsey.Houses.Types> HouseTypes { get; init; }
+        public IEnumerable<Units> HouseUnits { get; init; }
+        public IEnumerable<Guernsey.Inflation.Changes> InflationChanges { get; init; }
+        public IEnumerable<RpixGroupChanges> InflationRpixGroupChanges { get; init; }
+        public IEnumerable<RpiGroupChanges> InflationRpiGroupChanges { get; init; }
+        public IEnumerable<Contributions> OverseasContributions { get; init; }
+        public IEnumerable<Age> PopulationAge { get; init; }
+        public IEnumerable<AgeFemale> PopulationAgeFemale { get; init; }
+        public IEnumerable<AgeMale> PopulationAgeMale { get; init; }
+        public IEnumerable<Birthplace> PopulationBirthplace { get; init; }
+        public IEnumerable<Guernsey.Population.Changes> PopulationChanges { get; init; }
+        public IEnumerable<District> PopulationDistrict { get; init; }
+        public IEnumerable<Parish> PopulationParish { get; init; }
+        public IEnumerable<Population> Population { get; init; }
+        public IEnumerable<CondorPunctuality> SailingsCondorPunctuality { get; init; }
+        public IEnumerable<Guernsey.Sailings.Cruises> SailingsCruises { get; init; }
+        public IEnumerable<AirByMonth> TourismAirByMonth { get; init; }
+        public IEnumerable<Guernsey.Tourism.Cruises> TourismCruises { get; init; }
+        public IEnumerable<SeaByMonth> TourismSeaByMonth { get; init; }
+        public IEnumerable<Traffic> Traffic { get; init; }
+        public IEnumerable<TrafficClassifications> TrafficClassifications { get; init; }
+        public IEnumerable<TrafficCollisions> TrafficCollisions { get; init; }
+        public IEnumerable<TrafficInjuries> TrafficInjuries { get; init; }
+        public IEnumerable<RegisteredVehicles> TransportRegisteredVehicles { get; init; }
+        public IEnumerable<CommericalAndIndustrial> WasteCommercialAndIndustrial { get; init; }
+        public IEnumerable<ConstructionAndDemolition> WasteConstructionAndDemolition { get; init; }
+        public IEnumerable<Household> WasteHousehold { get; init; }
+        public IEnumerable<DomesticConsumption> WaterDomesticConsumption { get; init; }
+        public IEnumerable<NitrateConcentration> WaterNitrateConcentration { get; init; }
+        public IEnumerable<PollutionIncidents> WaterPollutionIncidents { get; init; }
+        public IEnumerable<UnaccountedWater> WaterUnaccounted { get; init; }
+        public IEnumerable<WaterConsumption> WaterConsumption { get; init; }
+        public IEnumerable<WaterQualityCompliance> WaterQualityCompliance { get; init; }
+        public IEnumerable<WaterStorage> WaterStorage { get; init; }
+        public IEnumerable<FrostDays> WeatherFrostDays { get; init; }
+        public IEnumerable<MetOfficeAnnual> WeatherMetOfficeAnnual { get; init; }
+        public IEnumerable<MetOfficeMonthly> WeatherMetOfficeMonthly { get; init; }
 
         public ChartingData GetChartingDataForType(System.Type type)
         {
@@ -121,7 +121,8 @@ namespace DataGg.Core.Types
                 GroupingColumn = groupCol
             };
         }
-        public IEnumerable<object> GetFromType(System.Type type)
+
+        private IEnumerable<object> GetFromType(System.Type type)
         {
             var propertyInfos = GetType().GetProperties().ToArray();
             foreach (var p in propertyInfos)

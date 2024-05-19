@@ -1,9 +1,6 @@
 ﻿using DataGg.Web.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using DataGg.Core.Guernsey.Buses;
 using DataGg.Core.Guernsey.Crime;
@@ -35,15 +32,13 @@ namespace DataGg.Web.Controllers
     [Route("api/1.1")]
     [Route("api/1.0")]
     [Route("api/v1")]
-
     [ApiController]
     public class DataController : ControllerBase
     {
         private readonly CacheManager _cacheManager;
-        
+
         public DataController(CacheManager cacheManager)
         {
-
             _cacheManager = cacheManager;
         }
 
@@ -120,6 +115,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EarningsSex;
         }
+
         [HttpGet]
         [Route("education/gcse_overall")]
         [Route("education/gcse_overall.json")]
@@ -128,6 +124,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationGcseOverall;
         }
+
         [HttpGet]
         [Route("education/gcse_school")]
         [Route("education/gcse_school.json")]
@@ -136,6 +133,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationGcseSchool;
         }
+
         [HttpGet]
         [Route("education/post16results")]
         [Route("education/post16results.json")]
@@ -144,6 +142,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationPost16Results;
         }
+
         [HttpGet]
         [Route("education/students_in_uk")]
         [Route("education/students_in_uk.json")]
@@ -152,6 +151,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EducationStudentsInUk;
         }
+
         [HttpGet]
         [Route("emissions/source")]
         [Route("emissions/source.json")]
@@ -160,14 +160,16 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmissionSource;
         }
+
         [HttpGet]
         [Route("emissions/types")]
         [Route("emissions/types.json")]
-        public async Task<IEnumerable<Core.Guernsey.Emissions.Type>> EmissionsTypes()
+        public async Task<IEnumerable<Type>> EmissionsTypes()
         {
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmissionType;
         }
+
         [HttpGet]
         [Route("employment/sector")]
         [Route("employment/sector.json")]
@@ -176,6 +178,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmploymentSector;
         }
+
         [HttpGet]
         [Route("employment/totals")]
         [Route("employment/totals.json")]
@@ -184,6 +187,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EmploymentTotals;
         }
+
         [HttpGet]
         [Route("energy/electricity_consumption")]
         [Route("energy/electricity_consumption.json")]
@@ -192,6 +196,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EnergyElectricityConsumption;
         }
+
         [HttpGet]
         [Route("energy/electricity_import_vs_generated")]
         [Route("energy/electricity_import_vs_generated.json")]
@@ -200,6 +205,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EnergyElectricityImportVsGenerated;
         }
+
         [HttpGet]
         [Route("energy/gas")]
         [Route("energy/gas.json")]
@@ -208,6 +214,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EnergyGas;
         }
+
         [HttpGet]
         [Route("energy/oil")]
         [Route("energy/oil.json")]
@@ -216,6 +223,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EnergyOilImports;
         }
+
         [HttpGet]
         [Route("energy/renewable")]
         [Route("energy/renewable.json")]
@@ -224,6 +232,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.EnergyRenewable;
         }
+
         [HttpGet]
         [Route("finance/banking")]
         [Route("finance/banking.json")]
@@ -232,6 +241,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.FinanceBanking;
         }
+
         [HttpGet]
         [Route("finance/funds_under_management")]
         [Route("finance/funds_under_management.json")]
@@ -240,6 +250,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.FinanceFundsUnderManagement;
         }
+
         [HttpGet]
         [Route("fire_and_rescue/attendances")]
         [Route("fire_and_rescue/attendances.json")]
@@ -248,6 +259,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.FireAndRescueAttendances;
         }
+
 /*        [HttpGet]
         [Route("")]
         [Route("")]
@@ -272,6 +284,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HealthChestAndHeartConcerns;
         }
+
         [HttpGet]
         [Route("health/totals")]
         [Route("health/totals.json")]
@@ -280,6 +293,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HealthChestAndHeartTotals;
         }
+
         [HttpGet]
         [Route("health/med_unit_bed_days_five_yr_avg")]
         [Route("health/med_unit_bed_days_five_yr_avg.json")]
@@ -288,6 +302,16 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HealthMedUnitBedDaysFiveYrAvg;
         }
+
+        [HttpGet]
+        [Route("health/medical_unit_bed_days")]
+        [Route("health/medical_unit_bed_days.json")]
+        public async Task<IEnumerable<MedicalUnitBedDays>> HealthMedicalUnitBedDays()
+        {
+            var dataCache = await _cacheManager.DataCache.Get();
+            return dataCache.HealthMedicalUnitBedDays;
+        }
+
         [HttpGet]
         [Route("housing/bedrooms")]
         [Route("housing/bedrooms.json")]
@@ -296,6 +320,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseBedrooms;
         }
+
         [HttpGet]
         [Route("housing/local_prices")]
         [Route("housing/local_prices.json")]
@@ -304,6 +329,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseLocalPrices;
         }
+
         [HttpGet]
         [Route("housing/open_prices")]
         [Route("housing/open_prices.json")]
@@ -312,6 +338,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseOpenPrices;
         }
+
         [HttpGet]
         [Route("housing/types")]
         [Route("housing/types.json")]
@@ -320,6 +347,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseTypes;
         }
+
         [HttpGet]
         [Route("housing/units")]
         [Route("housing/units.json")]
@@ -328,6 +356,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.HouseUnits;
         }
+
         [HttpGet]
         [Route("inflation/changes")]
         [Route("inflation/changes.json")]
@@ -336,6 +365,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.InflationChanges;
         }
+
         [HttpGet]
         [Route("inflation/rpix_group_changes")]
         [Route("inflation/rpix_group_changes.json")]
@@ -344,6 +374,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.InflationRpixGroupChanges;
         }
+
         [HttpGet]
         [Route("inflation/rpi_group_changes")]
         [Route("inflation/rpi_group_changes.json")]
@@ -352,6 +383,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.InflationRpiGroupChanges;
         }
+
         [HttpGet]
         [Route("overseas_aid/contributions")]
         [Route("overseas_aid/contributions.json")]
@@ -360,6 +392,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.OverseasContributions;
         }
+
         [HttpGet]
         [Route("population/age")]
         [Route("population/age.json")]
@@ -368,6 +401,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationAge;
         }
+
         [HttpGet]
         [Route("population/age_female")]
         [Route("population/age_female.json")]
@@ -376,6 +410,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationAgeFemale;
         }
+
         [HttpGet]
         [Route("population/age_male")]
         [Route("population/age_male.json")]
@@ -384,6 +419,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationAgeMale;
         }
+
         [HttpGet]
         [Route("population/birthplace")]
         [Route("population/birthplace.json")]
@@ -392,6 +428,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationBirthplace;
         }
+
         [HttpGet]
         [Route("population/changes")]
         [Route("population/changes.json")]
@@ -400,6 +437,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.PopulationChanges;
         }
+
         [HttpGet]
         [Route("population/district")]
         [Route("population/district.json")]
@@ -453,6 +491,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.TourismAirByMonth;
         }
+
         [HttpGet]
         [Route("tourism/cruises")]
         [Route("tourism/cruises.json")]
@@ -461,6 +500,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.TourismCruises;
         }
+
         [HttpGet]
         [Route("tourism/sea_by_month")]
         [Route("tourism/sea_by_month.json")]
@@ -469,6 +509,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.TourismSeaByMonth;
         }
+
         [HttpGet]
         [Route("traffic/traffic")]
         [Route("traffic/traffic.json")]
@@ -477,6 +518,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.Traffic;
         }
+
         [HttpGet]
         [Route("traffic/classifications")]
         [Route("traffic/classifications.json")]
@@ -485,6 +527,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.TrafficClassifications;
         }
+
         [HttpGet]
         [Route("traffic/collisions")]
         [Route("traffic/collisions.json")]
@@ -493,6 +536,7 @@ namespace DataGg.Web.Controllers
             var dataCache = await _cacheManager.DataCache.Get();
             return dataCache.TrafficCollisions;
         }
+
         [HttpGet]
         [Route("traffic/injuries")]
         [Route("traffic/injuries.json")]
@@ -628,8 +672,7 @@ namespace DataGg.Web.Controllers
             return dataCache.WeatherMetOfficeMonthly;
         }
 
-        #region Live 
-
+        #region Live
 
         [HttpGet]
         [Route("flights/arrivals")]

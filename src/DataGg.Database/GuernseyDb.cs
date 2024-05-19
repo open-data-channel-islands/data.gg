@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Threading.Tasks;
 using Dapper;
 using DataGg.Core.Guernsey.Buses;
@@ -35,7 +34,7 @@ namespace DataGg.Database
 
         public async Task<DataCache> GetDataCache()
         {
-            return new DataCache()
+            return new DataCache
             {
                 BusUsage = await GetBusUsage(),
                 Crime = await GetCrime(),
@@ -63,6 +62,7 @@ namespace DataGg.Database
                 GovSpendingBreakdown = await GetGovSpendingBreakdown(),
                 HealthChestAndHeartConcerns = await GetHealthChestAndHeartConcerns(),
                 HealthChestAndHeartTotals = await GetHealthChestAndHeartTotals(),
+                HealthMedicalUnitBedDays = await GetHealthMedicalUnitBedDays(),
                 HealthMedUnitBedDaysFiveYrAvg = await GetHealthMedUnitBedDaysFiveYrAvg(),
                 HouseBedrooms = await GetHouseBedrooms(),
                 HouseLocalPrices = await GetHouseLocalPrices(),
@@ -128,8 +128,8 @@ namespace DataGg.Database
         public async Task<Crime[]> GetCrime()
         {
             var json = await GetJsonFromDb("crime/crime.json");
-            var Crime = JsonSerializer.Deserialize<Crime[]>(json);
-            return Crime;
+            var crime = JsonSerializer.Deserialize<Crime[]>(json);
+            return crime;
         }
 
         public async Task<PrisonPopulation[]> GetCrimePrisonPopulation()
@@ -142,8 +142,8 @@ namespace DataGg.Database
         public async Task<Worried[]> GetCrimeWorried()
         {
             var json = await GetJsonFromDb("crime/worried.json");
-            var Worried = JsonSerializer.Deserialize<Worried[]>(json);
-            return Worried;
+            var worried = JsonSerializer.Deserialize<Worried[]>(json);
+            return worried;
         }
 
         public async Task<EarningsAgeGroup[]> GetEarningsAgeGroup()
@@ -306,7 +306,12 @@ namespace DataGg.Database
             var medUnitBedDaysFiveYrAvg = JsonSerializer.Deserialize<MedUnitBedDaysFiveYrAvg[]>(json);
             return medUnitBedDaysFiveYrAvg;
         }
-
+        public async Task<MedicalUnitBedDays[]> GetHealthMedicalUnitBedDays()
+        {
+            var json = await GetJsonFromDb("health/medical_unit_bed_days.json");
+            var medUnitBedDaysFiveYrAvg = JsonSerializer.Deserialize<MedicalUnitBedDays[]>(json);
+            return medUnitBedDaysFiveYrAvg;
+        }
         public async Task<Bedroom[]> GetHouseBedrooms()
         {
             var json = await GetJsonFromDb("houses/bedrooms.json");

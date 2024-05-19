@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace DataGg.Core.Extensions;
 
@@ -7,7 +6,7 @@ public static class PropertyInfoExtensions
 {
     public static double? GetValueAsDouble(this PropertyInfo pi, object obj)
     {
-        double? asDouble = pi.GetValue(obj) is double ? 
+        var asDouble = pi.GetValue(obj) is double ? 
             (double?)pi.GetValue(obj) : 
             null;
         if (asDouble.HasValue)

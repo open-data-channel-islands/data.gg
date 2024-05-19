@@ -271,7 +271,16 @@ namespace DataGg.Test
             Assert.IsNotNull(healthMedUnitBedDaysFiveYrAvg);
             Assert.IsTrue(healthMedUnitBedDaysFiveYrAvg.Length > 0);
         }
+        
+        [TestMethod]
+        public async Task HealthMedicalUnitBedDays()
+        {
+            var healthMedicalUnitBedDays = await _guernseyDb.GetHealthMedicalUnitBedDays();
 
+            Assert.IsNotNull(healthMedicalUnitBedDays);
+            Assert.IsTrue(healthMedicalUnitBedDays.Length > 0);
+        }
+        
         [TestMethod]
         public async Task HouseBedrooms()
         {
